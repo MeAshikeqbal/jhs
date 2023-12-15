@@ -1,18 +1,18 @@
 import { Facebook, Mail, PhoneCallIcon } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react'
 import Image from 'next/image';
 import { Separator } from "@/components/ui/separator"
 
 const TopBar = () => {
   return (
-
     <div>
-      <div className='grid items-center justify-center p-3 md:{flex justify-between}'>
+      <div className='grid items-center p-2 md:flex justify-around'>
         <div className='flex justify-center pb-2'>
-          <Image src={'/img/logo.svg'} width={100} height={100} alt='logo' />
+          <Link href='/' passHref>
+            <Image src={'/img/logo.svg'} width={100} height={100} alt='logo' />
+          </Link>
         </div>
-        <div className='md:flex '>
+        <div className='md:flex items-center'>
           <Link href="mailto:jalalpurhighschool1@gmail.com" className='flex justify-center'>
             <Mail size={24} className='mr-2' />
             jalalpurhighschool1@gmail.com
@@ -29,7 +29,6 @@ const TopBar = () => {
           </Link>
         </div>
       </div>
-      <Separator />
     </div>
   )
 }
