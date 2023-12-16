@@ -164,35 +164,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
       ],
     },
     {
-      title: "Achievements",
-      name: "achievements",
-      type: "document",
-      fields: [
-        {
-          title: "Title",
-          name: "title",
-          type: "string",
-          placeholder: "Title",
-        },
-        {
-          title: "Description",
-          name: "description",
-          type: "text",
-        },
-        {
-          title: "Image",
-          name: "image",
-          type: "image",
-        },
-        {
-          title: "tags",
-          name: "tags",
-          type: "array",
-          of: [{ type: "string" }],
-        },
-      ],
-    },
-    {
       title: "HM Dask",
       name: "hmdesk",
       type: "document",
