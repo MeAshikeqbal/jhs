@@ -9,6 +9,7 @@ import {
 import { client } from "@/sanity/lib/client"
 import Image from "next/image"
 import { urlForImage } from "@/sanity/lib/image"
+import { Separator } from "@/components/ui/separator"
 
 
 
@@ -17,7 +18,7 @@ type hm = {
     name: string,
     image: string,
     qualification: string,
-    title: string | undefined,
+    designation: string | undefined,
 }
 
 type ahm = {
@@ -25,7 +26,7 @@ type ahm = {
     name: string,
     image: string,
     qualification: string,
-    title: string | undefined,
+    designation: string | undefined,
 }
 
 type at = {
@@ -33,7 +34,7 @@ type at = {
     name: string,
     image: string | any,
     qualification: string,
-    title: string | undefined,
+    designation: string | undefined,
 }
 
 type pt = {
@@ -41,77 +42,121 @@ type pt = {
     name: string,
     image: string | any,
     qualification: string,
-    title: string | undefined,
+    designation: string | undefined,
 }
 
 
 export async function teachers() {
-    const hm = await client.fetch(`*[_type == "teachers" && title == "Headmaster"]{
+    const hm = await client.fetch(`*[_type == "teachers" && designation == "Headmaster"]{
         _id,
         name,
-        image,
+        image{
+            asset->{
+                _id,
+                url,
+                metadata{
+                    lqip
+                }
+            }
+        },
         qualification,
-        title
+        designation,
     }`)
 
-    const ahm = await client.fetch(`*[_type == "teachers" && title == "Assistant Headmaster"]{
+    const ahm = await client.fetch(`*[_type == "teachers" && designation == "Assistant Headmaster"]{
         _id,
         name,
-        image,
+        image{
+            asset->{
+                _id,
+                url,
+                metadata{
+                    lqip
+                }
+            }
+        },
         qualification,
-        title
+        designation,
     }`)
 
-    const at = await client.fetch(`*[_type == "teachers" && title == "Assistant Teacher"]{
+    const at = await client.fetch(`*[_type == "teachers" && designation == "Assistant Teacher"]{
         _id,
         name,
-        image,
+        image{
+            asset->{
+                _id,
+                url,
+                metadata{
+                    lqip
+                }
+            }
+        },
         qualification,
-        title
+        designation,
     }`)
 
-    const pt = await client.fetch(`*[_type == "teachers" && title == "Para Teacher"]{
+    const pt = await client.fetch(`*[_type == "teachers" && designation == "Para Teacher"]{
         _id,
         name,
-        image,
+        image{
+            asset->{
+                _id,
+                url,
+                metadata{
+                    lqip
+                }
+            }
+        },
         qualification,
-        title
+        designation,
     }`)
 
 
     return (
         <div>
             <h1
-                className="text-4xl font-bold text-center underline p-2"
+                className="text-4xl font-bold text-center p-2"
             >Teachers</h1>
             <div className="p-4">
                 <h2
                     className="text-2xl font-bold text-left p-2"
-                >Headmaster</h2>
+                >Headmaster
+                    <Separator
+                        className='h-1 m-1 bg-gray-800 w-32 rounded-full'
+                    />
+
+                </h2>
                 <div className="flex items-center justify-center md:flex flex-wrap">
                     <Card className="w-64 h-96" >
                         <CardHeader>
                             <Image
                                 src={urlForImage(hm[0]?.image)}
-                                alt={hm[0]?.name.toUpperCase()}
+                                alt={hm[0]?.name}
                                 width={200}
                                 height={200}
                                 className="rounded-full w-52 h-52"
+                                placeholder="blur"
+                                blurDataURL={hm[0]?.image?.asset?.metadata?.lqip}
+                                loading="lazy"
                             />
                         </CardHeader>
                         <CardContent>
                             <CardTitle>{hm[0]?.name}</CardTitle>
                             <CardDescription>{hm[0]?.qualification}</CardDescription>
-                            
+
                         </CardContent>
-                        <CardFooter>{hm[0]?.title}</CardFooter>
+                        <CardFooter>{hm[0]?.designation}</CardFooter>
                     </Card>
                 </div>
             </div>
             <div className="p-4">
                 <h2
                     className="text-2xl font-bold text-left p-2"
-                >Assistant Headmaster</h2>
+                >Assistant Headmaster
+                    <Separator
+                        className='h-1 m-1 bg-gray-800 rounded-full w-60'
+                    />
+                </h2>
                 <div className="flex items-center justify-center md:flex flex-wrap">
                     <Card className="w-64 h-96" >
                         <CardHeader>
@@ -121,6 +166,9 @@ export async function teachers() {
                                 width={200}
                                 height={200}
                                 className="rounded-full w-52 h-52"
+                                placeholder="blur"
+                                blurDataURL={ahm[0]?.image?.asset?.metadata?.lqip}
+                                loading="lazy"
                             />
                         </CardHeader>
                         <CardContent>
@@ -134,7 +182,11 @@ export async function teachers() {
             <div className="p-4">
                 <h2
                     className="text-2xl font-bold text-left p-2"
-                >Assistant Teacher</h2>
+                >Assistant Teacher
+                    <Separator
+                        className='h-1 m-1 bg-gray-800 rounded-full w-48'
+                    />
+                </h2>
                 <div className="flex items-center justify-center md:flex flex-wrap">
                     {at.map((at: at) => (
                         <div key={at._id}
@@ -149,13 +201,16 @@ export async function teachers() {
                                             width={200}
                                             height={200}
                                             className="rounded-full w-52 h-52"
+                                            placeholder="blur"
+                                            blurDataURL={at.image?.asset?.metadata?.lqip}
+                                            loading="lazy"
                                         />
                                     </CardHeader>
                                     <CardContent>
                                         <CardTitle>{at.name.toUpperCase()}</CardTitle>
                                         <CardDescription>{at.qualification}</CardDescription>
                                     </CardContent>
-                                    <CardFooter>{at.title}</CardFooter>
+                                    <CardFooter>{at.designation}</CardFooter>
                                 </div>
                             </Card>
                         </div>
@@ -167,7 +222,11 @@ export async function teachers() {
             <div className="p-4">
                 <h2
                     className="text-2xl font-bold text-left p-2"
-                >Para Teacher</h2>
+                >Para Teacher
+                    <Separator
+                        className='h-1 m-1 bg-gray-800 rounded-full w-36'
+                    />
+                </h2>
                 <div className="flex items-center justify-center md:flex flex-wrap">
                     {pt.map((pt: pt) => (
                         <div key={pt._id}
@@ -181,14 +240,19 @@ export async function teachers() {
                                             alt={pt.name}
                                             width={200}
                                             height={200}
+                                            loading="lazy"
                                             className="rounded-full w-52 h-52"
+                                            placeholder="blur"
+                                            blurDataURL={pt.image?.asset?.metadata?.lqip}
+                                            objectPosition="center"
+                                            objectFit="cover"
                                         />
                                     </CardHeader>
                                     <CardContent>
                                         <CardTitle>{pt.name.toUpperCase()}</CardTitle>
                                         <CardDescription>{pt.qualification}</CardDescription>
                                     </CardContent>
-                                    <CardFooter>{at.title}</CardFooter>
+                                    <CardFooter>{at.designation}</CardFooter>
                                 </div>
                             </Card>
                         </div>
