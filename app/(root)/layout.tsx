@@ -9,7 +9,7 @@ import { Separator } from '@/components/ui/separator'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Jalalpur High School',
+  title: 'Jalalpur High School (H.S.)',
   description: 'Jalalpur High School (H.S.) is one of the significant academic institutions of Malda District, West Bengal Since 1973, it is looking forward to the advancement of learning with an unmatched calibre. ',
 }
 
