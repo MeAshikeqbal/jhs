@@ -38,7 +38,7 @@ export async function Notice() {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center p-1'>
+      <div className='flex flex-col items-center justify-center p-1 '>
         <h1 className='text-3xl font-bold text-center text-gray-800 md:text-4xl'>
           Notice
         </h1>
@@ -49,14 +49,14 @@ export async function Notice() {
           </div>
         </h2>
       </div>
-      <div className="justify-center items-center flex-col">
+      <div className="justify-center items-center flex-col max-w-6xl mx-auto">
         {notice.map((n: notice) => (
-          <div key={n._id} className='p-2 md:pl-10 pr-10'>
+          <div key={n._id} className='p-1.5'>
             <Dialog>
               <DialogTrigger
                 className="flex w-full items-start justify-start h-full p-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50"
               >
-                <Bookmark className='w-6 h-6 text-gray-800' />
+                <Bookmark className='w-6 h-6 text-gray-800 mr-2'/>
                 {n.title} - {n.date}
               </DialogTrigger>
               <DialogContent>
