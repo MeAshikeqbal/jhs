@@ -118,7 +118,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Description",
           name: "description",
           type: "text",
-          placeholder: "Information about the poster",
+          placeholder: "Information about notice",
         },
         {
           title: "Image",
@@ -126,10 +126,30 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "image",
         },
         {
+          title: "Date",
+          name: "date",
+          type: "date",
+          options: {
+            dateFormat: 'DD-MM-YYYY',
+            calendarTodayLabel: 'Today'
+          }        
+        },
+        {
+          title:"slug",
+          name:"slug",
+          type:"slug",
+        },
+        {
           title: "tags",
           name: "tags",
-          type: "array",
-          of: [{ type: "string" }],
+          type: "string",
+          options: { 
+              list:[
+                {title:"Important",value:"Important"},
+                {title:"Urgent",value:"Urgent"},
+                {title:"General",value:"General"},
+              ]
+           },
         },
       ],
     },
