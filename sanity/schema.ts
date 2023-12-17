@@ -211,18 +211,17 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "image",
         },
         {
+          title:"Name",
+          name:"name",
+          type:"string"
+        },
+        {
           title: "Year of Passing",
           name: "batch",
           type: "date",
           options: {
             dateFormat: "YYYY",
           },
-        },
-        {
-          title: "Content",
-          name: "content",
-          type: "text",
-          placeholder:"Shrort description about the alumni"
         },
       ],
     },

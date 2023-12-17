@@ -42,11 +42,11 @@ export async function hmDask() {
 
 
           <PortableText
-            className=' text-gray-800 text-justify'
+            className=' text-gray-800 text-justify mt-2'
             content={hmDask[0].content}
           />
         </div>
-      <h3 className='w text-blue-900'>
+      <h3 className=' text-blue-900 mt-2'>
         -{hmDask[0]?.name}, {hmDask[0]?.designation}
       </h3>
       </div>

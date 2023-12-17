@@ -4,6 +4,7 @@ import './globals.css'
 import TopBar from '@/components/TopBar'
 import {Navbar} from '@/components/NavBar'
 import { Separator } from '@/components/ui/separator'
+import Footer from '@/components/footer'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,8 +25,8 @@ export default function RootLayout({
       <TopBar />
       <Navbar
       />
-      <Separator/>
         {children}
+        <Footer/>
       </body>
     </html>
   )
