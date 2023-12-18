@@ -1,10 +1,35 @@
-import Image from 'next/image'
-import TopBar from '@/components/TopBar'
+import BootstrapCarousel from "@/components/caroucel"
+import { client } from "@/sanity/lib/client"
 
-export default function Home() {
+type poster = {
+  _id: string,
+  title: string,
+  image: string | any,
+}
+
+export async function home() {
+
+  const poster = await client.fetch(`*[_type == "poster" ]{
+    _id,
+    title,
+    image{
+      asset->{
+        _id,
+        url,
+        metadata{
+          lqip
+        }
+      }
+    }
+  }`)
+
+  console.log(poster)
+
   return (
     <div>
-      hello
+
     </div>
   )
 }
+
+export default home

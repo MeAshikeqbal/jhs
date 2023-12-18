@@ -14,21 +14,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           placeholder: "Title",
         },
         {
-          title: "Description",
-          name: "description",
-          type: "text",
-          placeholder: "Information about the poster",
-        },
-        {
           title: "Image",
           name: "image",
           type: "image",
-        },
-        {
-          title: "tags",
-          name: "tags",
-          type: "array",
-          of: [{ type: "string" }],
         },
       ],
     },
