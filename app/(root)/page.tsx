@@ -1,4 +1,3 @@
-import BootstrapCarousel from "@/components/caroucel"
 import { client } from "@/sanity/lib/client"
 
 type poster = {
@@ -27,7 +26,9 @@ export async function home() {
 
   return (
     <div>
-
+      <div>
+        {/* TODO:Carousel */}
+      </div>
     </div>
   )
 }
