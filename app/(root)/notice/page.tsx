@@ -4,7 +4,6 @@ import { Separator } from "@/components/ui/separator";
 import { client } from "@/sanity/lib/client";
 import { Bookmark } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 
 type notice = {
@@ -17,7 +16,7 @@ type notice = {
 
 export async function Notice() {
 
-  const notice = await client.fetch(`*[_type == "notice"] | order(_createdAt asc)
+  const notice = await client.fetch(`*[_type == "notice" ] | order(_createdAt asc)
   {
     _id,
     title,
@@ -33,7 +32,6 @@ export async function Notice() {
       }
     }
   }`)
-
 
 
   return (

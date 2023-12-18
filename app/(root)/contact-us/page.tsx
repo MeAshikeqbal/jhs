@@ -1,3 +1,4 @@
+import MapComponent from '@/components/map';
 import { Facebook, HomeIcon, Mail, PhoneCallIcon, School, SchoolIcon } from 'lucide-react';
 import Link from 'next/link';
 
@@ -36,7 +37,6 @@ const ContactUs = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div>
 

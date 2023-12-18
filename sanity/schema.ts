@@ -57,6 +57,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Date of Appointment",
           name: "date",
           type: "date",
+          options: {
+            dateFormat: 'DD-MM-YYYY',
+            calendarTodayLabel: 'Today'
+          }        
         },
         {
           title: "Designation",
@@ -100,6 +104,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Date",
           name: "date",
           type: "date",
+          options: {
+            dateFormat: 'DD-MM-YYYY',
+            calendarTodayLabel: 'Today'
+          }        
         },
       ],
     },
@@ -133,11 +141,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
             dateFormat: 'DD-MM-YYYY',
             calendarTodayLabel: 'Today'
           }        
-        },
-        {
-          title:"slug",
-          name:"slug",
-          type:"slug",
         },
         {
           title: "tags",
@@ -233,15 +236,15 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         {
           title:"Name",
           name:"name",
-          type:"string"
+          type:"string",
+          validation: (Rule) => Rule.required().min(3).max(50),
         },
         {
           title: "Year of Passing",
           name: "batch",
-          type: "date",
-          options: {
-            dateFormat: "YYYY",
-          },
+          type: "number",
+          validation: (Rule) => Rule.required().min(1900).max(2099),
+          placeholder:"2021",
         },
       ],
     },
