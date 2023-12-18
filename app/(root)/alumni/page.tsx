@@ -21,6 +21,7 @@ export async function alumni() {
           }
       }`)
 
+
   const sortedAlumni = [...alumni].sort((a, b) => a.batch - b.batch);
   let currentBatch: null = null;
 
