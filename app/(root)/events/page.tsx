@@ -10,6 +10,7 @@ import { Key, ReactElement, JSXElementConstructor, ReactNode, PromiseLikeOfReact
 
 
 type Event = {
+  _id: string
   title: string
   description: string
   date: string
@@ -30,7 +31,8 @@ export async function Events() {
   const currentDate = new Date().toISOString();
 
   const pastEventsQuery = `*[_type == "events" && date < "${currentDate}"]{
-  title,
+  _id,
+    title,
   description,
   date,
   image{
@@ -45,7 +47,8 @@ export async function Events() {
 }`;
 
   const futureEventsQuery = `*[_type == "events" && date > "${currentDate}"]{
-  title,
+  _id,
+    title,
   description,
   date,
   image{
@@ -129,7 +132,7 @@ export async function Events() {
       <div>
         <div className="justify-center items-center flex-col max-w-6xl mx-auto">
           <h2 className='text-l font-semibold text-left m-2 text-gray-800 md:text-xl'>
-            Current Events
+            Past Events
             <Separator className=' w-36 h-1 mt-1 bg-gray-800 rounded-full' />
           </h2>
           {pastEvents.length > 0 ? (
@@ -139,8 +142,7 @@ export async function Events() {
                 className='flex p-1.5'
               >
 
-                <Dialog
-                >
+                <Dialog>
                   <DialogTrigger
                     className="flex w-full items-start justify-start h-full p-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50"
                   >
