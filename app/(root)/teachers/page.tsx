@@ -2,7 +2,6 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -19,6 +18,7 @@ type hm = {
     image: string,
     qualification: string,
     designation: string | undefined,
+    date: string,
 }
 
 type ahm = {
@@ -27,6 +27,7 @@ type ahm = {
     image: string,
     qualification: string,
     designation: string | undefined,
+    date: string,
 }
 
 type at = {
@@ -35,6 +36,7 @@ type at = {
     image: string | any,
     qualification: string,
     designation: string | undefined,
+    date: string,
 }
 
 type pt = {
@@ -43,6 +45,7 @@ type pt = {
     image: string | any,
     qualification: string,
     designation: string | undefined,
+    date: string,
 }
 
 
@@ -59,6 +62,7 @@ export async function teachers() {
                 }
             }
         },
+        date,
         qualification,
         designation,
     }`)
@@ -75,6 +79,7 @@ export async function teachers() {
                 }
             }
         },
+        date,
         qualification,
         designation,
     }`)
@@ -91,6 +96,7 @@ export async function teachers() {
                 }
             }
         },
+        date,
         qualification,
         designation,
     }`)
@@ -107,6 +113,7 @@ export async function teachers() {
                 }
             }
         },
+        date,
         qualification,
         designation,
     }`)
@@ -143,9 +150,9 @@ export async function teachers() {
                         <CardContent>
                             <CardTitle>{hm[0]?.name}</CardTitle>
                             <CardDescription>{hm[0]?.qualification}</CardDescription>
-
+                            <CardDescription>{hm[0]?.designation}</CardDescription>
+                            <CardDescription>{hm[0]?.date}</CardDescription>
                         </CardContent>
-                        <CardFooter>{hm[0]?.designation}</CardFooter>
                     </Card>
                 </div>
             </div>
@@ -174,8 +181,9 @@ export async function teachers() {
                         <CardContent>
                             <CardTitle>{ahm[0].name}</CardTitle>
                             <CardDescription>{ahm[0].qualification}</CardDescription>
+                            <CardDescription>{ahm[0].designation}</CardDescription>
+                            <CardDescription>{ahm[0].date}</CardDescription>
                         </CardContent>
-                        <CardFooter>{ahm[0].title}</CardFooter>
                     </Card>
                 </div>
             </div>
@@ -209,8 +217,9 @@ export async function teachers() {
                                     <CardContent>
                                         <CardTitle>{at.name.toUpperCase()}</CardTitle>
                                         <CardDescription>{at.qualification}</CardDescription>
+                                        <CardDescription>{at.designation}</CardDescription>
+                                        <CardDescription>{at.date}</CardDescription>
                                     </CardContent>
-                                    <CardFooter>{at.designation}</CardFooter>
                                 </div>
                             </Card>
                         </div>
@@ -251,8 +260,9 @@ export async function teachers() {
                                     <CardContent>
                                         <CardTitle>{pt.name.toUpperCase()}</CardTitle>
                                         <CardDescription>{pt.qualification}</CardDescription>
+                                        <CardDescription>{pt.designation}</CardDescription>
+                                        <CardDescription>{pt.date}</CardDescription>
                                     </CardContent>
-                                    <CardFooter>{at.designation}</CardFooter>
                                 </div>
                             </Card>
                         </div>
