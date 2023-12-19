@@ -3,6 +3,77 @@ import { type SchemaTypeDefinition } from "sanity";
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     {
+      title: "Notice",
+      name: "notice",
+      type: "document",
+      fields: [
+        {
+          title: "Title",
+          name: "title",
+          type: "string",
+          placeholder: "Title",
+        },
+        {
+          title: "Description",
+          name: "description",
+          type: "text",
+          placeholder: "Information about notice",
+        },
+        {
+          title: "Image",
+          name: "image",
+          type: "image",
+        },
+        {
+          title: "Date",
+          name: "date",
+          type: "date",
+          options: {
+            dateFormat: "DD-MM-YYYY",
+            calendarTodayLabel: "Today",
+          },
+        },
+      ],
+    },
+    {
+      title: "Events",
+      name: "events",
+      type: "document",
+      fields: [
+        {
+          title: "Title",
+          name: "title",
+          type: "string",
+          placeholder: "Title",
+        },
+        {
+          title: "Venue",
+          name: "venue",
+          type: "string",
+        },
+        {
+          title: "Description",
+          name: "description",
+          type: "text",
+          placeholder: "Information about the event",
+        },
+        {
+          title: "Image",
+          name: "image",
+          type: "image",
+        },
+        {
+          title: "Date of Event",
+          name: "date",
+          type: "date",
+          options: {
+            dateFormat: "DD-MM-YYYY",
+            calendarTodayLabel: "Today",
+          },
+        },
+      ],
+    },
+    {
       title: "Poster",
       name: "poster",
       type: "document",
@@ -90,84 +161,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         },
         {
           title: "Date",
-          name: "date",
-          type: "date",
-          options: {
-            dateFormat: "DD-MM-YYYY",
-            calendarTodayLabel: "Today",
-          },
-        },
-      ],
-    },
-    {
-      title: "Notice",
-      name: "notice",
-      type: "document",
-      fields: [
-        {
-          title: "Title",
-          name: "title",
-          type: "string",
-          placeholder: "Title",
-        },
-        {
-          title: "Description",
-          name: "description",
-          type: "text",
-          placeholder: "Information about notice",
-        },
-        {
-          title: "Image",
-          name: "image",
-          type: "image",
-        },
-        {
-          title: "Date",
-          name: "date",
-          type: "date",
-          options: {
-            dateFormat: "DD-MM-YYYY",
-            calendarTodayLabel: "Today",
-          },
-        },
-        {
-          title: "tags",
-          name: "tags",
-          type: "string",
-          options: {
-            list: [
-              { title: "Important", value: "Important" },
-              { title: "Urgent", value: "Urgent" },
-              { title: "General", value: "General" },
-            ],
-          },
-        },
-      ],
-    },
-    {
-      title: "Events",
-      name: "events",
-      type: "document",
-      fields: [
-        {
-          title: "Title",
-          name: "title",
-          type: "string",
-          placeholder: "Title",
-        },
-        {
-          title: "Description",
-          name: "description",
-          type: "text",
-          placeholder: "Information about the event",
-        },
-        {
-          title: "Image",
-          name: "image",
-          type: "image",
-        },
-        {
-          title: "Date of Event",
           name: "date",
           type: "date",
           options: {

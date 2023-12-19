@@ -1,18 +1,17 @@
 
-import { Card, CardContent } from '@/components/ui/card'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
 import { client } from '@/sanity/lib/client'
-import { Calendar, CalendarCheck, CalendarDays, CalendarX } from 'lucide-react'
+import {  CalendarCheck,  CalendarX, MapPin } from 'lucide-react'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
-import { Key, ReactElement, JSXElementConstructor, ReactNode, PromiseLikeOfReactNode, ReactPortal } from 'react'
 
 
 type Event = {
   _id: string
   title: string
   description: string
+  venue: string
   date: string
   image: {
     asset: {
@@ -33,6 +32,7 @@ export async function Events() {
   const pastEventsQuery = `*[_type == "events" && date < "${currentDate}"]{
   _id,
     title,
+    venue,
   description,
   date,
   image{
@@ -49,6 +49,7 @@ export async function Events() {
   const futureEventsQuery = `*[_type == "events" && date > "${currentDate}"]{
   _id,
     title,
+    venue,
   description,
   date,
   image{
@@ -87,7 +88,7 @@ export async function Events() {
 
 
           {futureEvents.length > 0 ? (
-            futureEvents.map((event: { _id: Key | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | PromiseLikeOfReactNode | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | Iterable<ReactNode> | null | undefined; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
+            futureEvents.map((event: { _id: string ; title: string ; description: string ; venue: string ; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
               <div
                 key={event._id}
                 className='flex p-1.5'
@@ -102,7 +103,7 @@ export async function Events() {
                       className='flex items-center justify-center'
                     >
                       <CalendarCheck className='w-6 h-6 text-gray-800 mr-2' />
-                      {event.title} - {new Date(event.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}
+                      {event.title} - {new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                     </h3>
                   </DialogTrigger>
                   <DialogContent>
@@ -116,7 +117,13 @@ export async function Events() {
                     />
                     <DialogTitle>{event.title}</DialogTitle>
                     <DialogDescription>{event.description}</DialogDescription>
-                    <DialogDescription>{new Date(event.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'long', year: 'numeric' })}</DialogDescription>
+                    <DialogDescription
+                      className='flex items-center'
+                    >
+                      <MapPin className='w-4 h-4 text-gray-500 mr-1' />
+                      {event.venue}</DialogDescription>
+
+                    <DialogDescription>{new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</DialogDescription>
                   </DialogContent>
                 </Dialog>
               </div>
@@ -136,7 +143,7 @@ export async function Events() {
             <Separator className=' w-36 h-1 mt-1 bg-gray-800 rounded-full' />
           </h2>
           {pastEvents.length > 0 ? (
-            pastEvents.map((event: { _id: Key | null | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | PromiseLikeOfReactNode | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | Iterable<ReactNode> | null | undefined; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
+            pastEvents.map((event: { _id: string ; title: string ; venue: string ; description: string ; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
               <div
                 key={event._id}
                 className='flex p-1.5'
@@ -150,7 +157,7 @@ export async function Events() {
                       className='flex items-center justify-center'
                     >
                       <CalendarX className='w-6 h-6 text-gray-800 mr-2' />
-                      {event.title} - {new Date(event.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}
+                      {event.title} - {new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                     </h3>
                   </DialogTrigger>
                   <DialogContent>
@@ -164,7 +171,12 @@ export async function Events() {
                     />
                     <DialogTitle>{event.title}</DialogTitle>
                     <DialogDescription>{event.description}</DialogDescription>
-                    <DialogDescription> {new Date(event.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'long', year: 'numeric' })}
+                    <DialogDescription
+                      className='flex items-center'
+                    >
+                      <MapPin className='w-4 h-4 text-gray-500 mr-1' />
+                      {event.venue}</DialogDescription>
+                    <DialogDescription> {new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}
                     </DialogDescription>
                   </DialogContent>
                 </Dialog>
