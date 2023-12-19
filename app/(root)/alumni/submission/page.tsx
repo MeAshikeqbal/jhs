@@ -116,7 +116,7 @@ function AlumniForm() {
           <Input type="file" name="image" id="image" placeholder='your picture' onChange={handleImageChange} required />
           <Label htmlFor="name">Name</Label>
           <Input required type="text" placeholder="Your Name" name="name" id="name" value={formState.name} onChange={handleChange} />
-          <Label htmlFor="batch">Batch</Label>
+          <Label htmlFor="batch">Year of passing Highschool</Label>
           <Input required type="number" placeholder="2021" name="batch" id="batch" value={formState.batch} onChange={handleChange} />
          <div
          className='flex items-center space-x-2'
