@@ -17,6 +17,7 @@ const client = createClient({
   dataset: 'production',
   token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
   useCdn: false,
+  apiVersion:process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-12-14',
 });
 
 type FormState = {
@@ -133,7 +134,6 @@ function AlumniForm() {
             {loading ? 'Loading...' : 'Submit'}
           </Button>
         </form>
-
         <Toaster />
       </Card>
     </div>
