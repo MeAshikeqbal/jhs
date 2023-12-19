@@ -42,13 +42,13 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "string",
         },
         {
-          title: "Date of Appointment",
+          title: "Date of joining",
           name: "date",
           type: "date",
           options: {
-            dateFormat: 'DD-MM-YYYY',
-            calendarTodayLabel: 'Today'
-          }        
+            dateFormat: "DD-MM-YYYY",
+            calendarTodayLabel: "Today",
+          },
         },
         {
           title: "Designation",
@@ -93,9 +93,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           name: "date",
           type: "date",
           options: {
-            dateFormat: 'DD-MM-YYYY',
-            calendarTodayLabel: 'Today'
-          }        
+            dateFormat: "DD-MM-YYYY",
+            calendarTodayLabel: "Today",
+          },
         },
       ],
     },
@@ -126,21 +126,21 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           name: "date",
           type: "date",
           options: {
-            dateFormat: 'DD-MM-YYYY',
-            calendarTodayLabel: 'Today'
-          }        
+            dateFormat: "DD-MM-YYYY",
+            calendarTodayLabel: "Today",
+          },
         },
         {
           title: "tags",
           name: "tags",
           type: "string",
-          options: { 
-              list:[
-                {title:"Important",value:"Important"},
-                {title:"Urgent",value:"Urgent"},
-                {title:"General",value:"General"},
-              ]
-           },
+          options: {
+            list: [
+              { title: "Important", value: "Important" },
+              { title: "Urgent", value: "Urgent" },
+              { title: "General", value: "General" },
+            ],
+          },
         },
       ],
     },
@@ -159,7 +159,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Description",
           name: "description",
           type: "text",
-          placeholder: "Information about the poster",
+          placeholder: "Information about the event",
         },
         {
           title: "Image",
@@ -167,10 +167,13 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "image",
         },
         {
-          title: "tags",
-          name: "tags",
-          type: "array",
-          of: [{ type: "string" }],
+          title: "Date of Event",
+          name: "date",
+          type: "date",
+          options: {
+            dateFormat: "DD-MM-YYYY",
+            calendarTodayLabel: "Today",
+          },
         },
       ],
     },
@@ -222,9 +225,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "image",
         },
         {
-          title:"Name",
-          name:"name",
-          type:"string",
+          title: "Name",
+          name: "name",
+          type: "string",
           validation: (Rule) => Rule.required().min(3).max(50),
         },
         {
@@ -232,7 +235,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           name: "batch",
           type: "number",
           validation: (Rule) => Rule.required().min(1900).max(2099),
-          placeholder:"2021",
+          placeholder: "2021",
         },
       ],
     },
