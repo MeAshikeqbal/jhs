@@ -2,72 +2,89 @@ import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import { client } from "@/sanity/lib/client"
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { Key, ReactElement, JSXElementConstructor, ReactNode, PromiseLikeOfReactNode } from "react";
 
+type Alumni = {
+  _id: string;
+  name: string;
+  batch: number;
+  image: {
+    asset: {
+      _id: string;
+      url: string;
+      metadata: {
+        lqip: string;
+      };
+    };
+  };
+};
 
-export async function alumni() {
-
-  const alumni = await client.fetch(`*[_type == "alumni"]{
-          _id,
-          name,
-          batch,
-          image{
-              asset->{
-                  _id,
-                  url,
-                  metadata{
-                      lqip
-                  }
-              }
-          }
-      }`)
-
-
-  const sortedAlumni = [...alumni].sort((a, b) => a.batch - b.batch);
-  let currentBatch: null = null;
-
-  return (
-<div>
-  {sortedAlumni.map((alumni) => {
-    const batchHeader = currentBatch !== alumni.batch ? (
-      <h1
-        className="flex flex-col items-center justify-center text-3xl font-bold text-gray-800 md:text-4xl p-4"
-      >{alumni.batch}
-        <Separator className="h-1 mt-1 bg-gray-800 rounded-full mb-2" />
-      </h1>
-    ) : null;
-    currentBatch = alumni.batch;
-
-    return (
-
-      <div key={alumni._id} className="p-2">
-        {batchHeader}
-        <div className="ml-4 flex justify-center ">
-          <Card
-            className="flex flex-col items-center w-64 h-72 pt-3"
-          >
-            <CardContent>
-              <Image
-                src={alumni.image.asset.url}
-                alt={alumni.name}
-                width={500}
-                height={500}
-                className="rounded-full h-52 w-52"
-                placeholder="blur"
-                blurDataURL={alumni.image.asset.metadata.lqip}
-              />
-            </CardContent>
-            <CardDescription>
-              {alumni.name}
-            </CardDescription>
-          </Card>
-        </div>
-      </div>
-    );
-  })}
-</div>
-  );
+type GroupedAlumni = {
+  [key: number]: Alumni[];
 };
 
 
+export async function alumni() {
+  const alumni = await client.fetch(`*[_type == "alumni"]{
+    _id,
+    name,
+    batch,
+    image{
+      asset->{
+        _id,
+        url,
+        metadata{
+          lqip
+        }
+      }
+    }
+  }`);
 
-export default alumni
+  const sortedAlumni = [...alumni].sort((a, b) => a.batch - b.batch);
+
+  const groupedAlumni = sortedAlumni.reduce<Record<string, typeof sortedAlumni>>((groups, alumni) => {
+    const key = alumni.batch;
+    if (!groups[key]) {
+      groups[key] = [];
+    }
+    groups[key].push(alumni);
+    return groups;
+  }, {});
+  return (
+    <div>
+      {Object.entries(groupedAlumni).map(([batch, alumniGroup]) => (
+        <div key={batch}>
+          <h1
+            className="flex flex-col items-center justify-center text-3xl font-bold text-gray-800 md:text-4xl p-4"
+          >
+            {batch}
+            <Separator className="h-1 mt-1 bg-gray-800 rounded-full mb-2" />
+          </h1>
+          <div className="flex flex-wrap justify-center">
+            {alumniGroup?.map((alumni: { _id: Key | null | undefined; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined; }; }; }; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | PromiseLikeOfReactNode | null | undefined; }) => (
+              <div key={alumni._id} className="p-2">
+                <Card className="flex flex-col items-center w-64 h-72 pt-3">
+                  <CardContent>
+                    <Image
+                      src={alumni.image.asset.url}
+                      alt={alumni.name?.toString() ?? ''}
+                      width={500}
+                      height={500}
+                      className="rounded-full h-52 w-52"
+                      placeholder="blur"
+                      blurDataURL={alumni.image.asset.metadata.lqip}
+                    />
+                  </CardContent>
+                  <CardDescription>{alumni.name}</CardDescription>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default alumni;
