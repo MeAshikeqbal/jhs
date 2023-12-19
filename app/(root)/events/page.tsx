@@ -102,7 +102,7 @@ export async function Events() {
                       className='flex items-center justify-center'
                     >
                       <CalendarCheck className='w-6 h-6 text-gray-800 mr-2' />
-                      {event.title}
+                      {event.title} - {new Date(event.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}
                     </h3>
                   </DialogTrigger>
                   <DialogContent>
@@ -116,7 +116,7 @@ export async function Events() {
                     />
                     <DialogTitle>{event.title}</DialogTitle>
                     <DialogDescription>{event.description}</DialogDescription>
-                    <DialogDescription>{new Date(event.date).toLocaleDateString('en-GB')}</DialogDescription>
+                    <DialogDescription>{new Date(event.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'long', year: 'numeric' })}</DialogDescription>
                   </DialogContent>
                 </Dialog>
               </div>
@@ -150,7 +150,7 @@ export async function Events() {
                       className='flex items-center justify-center'
                     >
                       <CalendarX className='w-6 h-6 text-gray-800 mr-2' />
-                      {event.title}
+                      {event.title} - {new Date(event.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}
                     </h3>
                   </DialogTrigger>
                   <DialogContent>
@@ -164,7 +164,7 @@ export async function Events() {
                     />
                     <DialogTitle>{event.title}</DialogTitle>
                     <DialogDescription>{event.description}</DialogDescription>
-                    <DialogDescription> {new Date(event.date).toLocaleDateString('en-GB')}
+                    <DialogDescription> {new Date(event.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'long', year: 'numeric' })}
                     </DialogDescription>
                   </DialogContent>
                 </Dialog>

@@ -151,7 +151,7 @@ export async function teachers() {
                             <CardTitle>{hm[0]?.name}</CardTitle>
                             <CardDescription>{hm[0]?.qualification}</CardDescription>
                             <CardDescription>{hm[0]?.designation}</CardDescription>
-                            <CardDescription>{hm[0]?.date}</CardDescription>
+                            <CardDescription>{new Date(hm[0]?.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}</CardDescription>
                         </CardContent>
                     </Card>
                 </div>
@@ -182,7 +182,7 @@ export async function teachers() {
                             <CardTitle>{ahm[0].name}</CardTitle>
                             <CardDescription>{ahm[0].qualification}</CardDescription>
                             <CardDescription>{ahm[0].designation}</CardDescription>
-                            <CardDescription>{ahm[0].date}</CardDescription>
+                            <CardDescription>{new Date(ahm[0]?.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}</CardDescription>
                         </CardContent>
                     </Card>
                 </div>
@@ -218,7 +218,7 @@ export async function teachers() {
                                         <CardTitle>{at.name.toUpperCase()}</CardTitle>
                                         <CardDescription>{at.qualification}</CardDescription>
                                         <CardDescription>{at.designation}</CardDescription>
-                                        <CardDescription>{at.date}</CardDescription>
+                                        <CardDescription>{new Date(at.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}</CardDescription>
                                     </CardContent>
                                 </div>
                             </Card>
@@ -261,7 +261,7 @@ export async function teachers() {
                                         <CardTitle>{pt.name.toUpperCase()}</CardTitle>
                                         <CardDescription>{pt.qualification}</CardDescription>
                                         <CardDescription>{pt.designation}</CardDescription>
-                                        <CardDescription>{pt.date}</CardDescription>
+                                        <CardDescription>{new Date(pt.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}</CardDescription>
                                     </CardContent>
                                 </div>
                             </Card>

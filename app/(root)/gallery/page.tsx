@@ -77,7 +77,7 @@ export async function Gallery() {
                                     {g.description}
                                 </CardDescription>
                                 <CardDescription className='pl-1'>
-                                    {g.date}
+                                    {new Date(g.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                                 </CardDescription>
                             </div>
                         </Card>

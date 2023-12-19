@@ -22,7 +22,6 @@ export async function home() {
     }
   }`)
 
-  console.log(poster)
 
   return (
     <div>

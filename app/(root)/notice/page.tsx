@@ -71,7 +71,7 @@ export async function Notice() {
                 <Dialog>
                   <DialogTrigger className="flex w-full items-start justify-start h-full p-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
                     <Bookmark className='w-6 h-6 text-gray-800 mr-2' />
-                    {n.title} - {n.date}
+                    {n.title} - {new Date(n.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}
                   </DialogTrigger>
                   <DialogContent>
                     <div className='flex flex-col items-center justify-center'>
@@ -87,7 +87,7 @@ export async function Notice() {
                     </div>
                     <DialogTitle>{n.title}</DialogTitle>
                     <DialogDescription>{n.description}</DialogDescription>
-                    <DialogDescription>{n.date}</DialogDescription>
+                    <DialogDescription>{new Date(n.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'long', year: 'numeric' })}</DialogDescription>
                   </DialogContent>
                 </Dialog>
               </div>

@@ -40,7 +40,7 @@ const footer = () => {
                             <h3>
                                 Student Corner
                             </h3>
-                            <Link href='/'>
+                            <Link href='/alumni/submission'>
                                 Alumni Submition
                             </Link>
                         </div>
