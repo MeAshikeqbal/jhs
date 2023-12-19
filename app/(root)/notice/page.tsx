@@ -41,7 +41,7 @@ export async function Notice() {
           Notice
         </h1>
         <h2 className='text-l font-semibold text-center text-gray-800 md:text-xl'>
-          Notice for the students
+          Acadamic Notice
           <div className='flex justify-center'>
             <Separator className='w-4/5 h-1 mt-1 bg-gray-800 rounded-full' />
           </div>
