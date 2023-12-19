@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { client } from "@/sanity/lib/client";
 import { Bookmark } from "lucide-react";
 import Image from "next/image";
+import { JSX, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react";
 
 
 type notice = {
@@ -33,6 +34,17 @@ export async function Notice() {
     }
   }`)
 
+  const noticesByYear = notice.reduce((groupedNotice: any[][], notice: { date: string | number | Date; map: (arg0: (n: notice) => JSX.Element) => string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | Iterable<ReactNode> | null | undefined; }) => {
+    const year = new Date(notice.date).getFullYear();
+
+    if (!groupedNotice[year]) {
+      groupedNotice[year] = [];
+    }
+    groupedNotice[year].push(notice);
+
+    return groupedNotice;
+  }, {});
+  const sortedYears = Object.keys(noticesByYear).sort((a, b) => Number(b) - Number(a));
 
   return (
     <>
@@ -48,32 +60,39 @@ export async function Notice() {
         </h2>
       </div>
       <div className="justify-center items-center flex-col max-w-6xl mx-auto">
-        {notice.map((n: notice) => (
-          <div key={n._id} className='p-1.5'>
-            <Dialog>
-              <DialogTrigger
-                className="flex w-full items-start justify-start h-full p-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50"
-              >
-                <Bookmark className='w-6 h-6 text-gray-800 mr-2'/>
-                {n.title} - {n.date}
-              </DialogTrigger>
-              <DialogContent>
-                <div className='flex flex-col items-center justify-center'>
-                  <Image
-                    src={n.image.asset.url}
-                    alt={n.title}
-                    width={500}
-                    height={300}
-                    placeholder='blur'
-                    blurDataURL={n.image.asset.metadata.lqip}
-                    className='rounded-lg'
-                  />
-                </div>
-                <DialogTitle>{n.title}</DialogTitle>
-                <DialogDescription>{n.description}</DialogDescription>
-                <DialogDescription>{n.date}</DialogDescription>
-              </DialogContent>
-            </Dialog>
+        {sortedYears.map((year) => (
+          <div key={year}>
+            <h2 className='text-l font-semibold text-left m-2 text-gray-800 md:text-xl'>
+              {year}
+              <Separator className=' w-14 h-1 mt-1 bg-gray-800 rounded-full' />
+            </h2>
+            {noticesByYear[year].map((n: notice) => (
+              <div key={n._id} className='p-1.5'>
+                <Dialog>
+                  <DialogTrigger className="flex w-full items-start justify-start h-full p-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
+                    <Bookmark className='w-6 h-6 text-gray-800 mr-2' />
+                    {n.title} - {n.date}
+                  </DialogTrigger>
+                  <DialogContent>
+                    <div className='flex flex-col items-center justify-center'>
+                      <Image
+                        src={n.image.asset.url}
+                        alt={n.title}
+                        width={500}
+                        height={300}
+                        placeholder='blur'
+                        blurDataURL={n.image.asset.metadata.lqip}
+                        className='rounded-lg'
+                      />
+                    </div>
+                    <DialogTitle>{n.title}</DialogTitle>
+                    <DialogDescription>{n.description}</DialogDescription>
+                    <DialogDescription>{n.date}</DialogDescription>
+                  </DialogContent>
+                </Dialog>
+              </div>
+            ))}
+
           </div>
         ))}
       </div>
