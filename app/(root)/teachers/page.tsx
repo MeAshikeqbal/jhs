@@ -120,7 +120,9 @@ export async function teachers() {
 
 
     return (
-        <div>
+        <div
+        className="max-w-7xl mx-auto"
+        >
             <h1
                 className="text-4xl font-bold text-center p-2"
             >Teachers</h1>

@@ -1,17 +1,20 @@
-import MapComponent from '@/components/map';
 import { Facebook, HomeIcon, Mail, PhoneCallIcon, School, SchoolIcon } from 'lucide-react';
 import Link from 'next/link';
 
 
 const ContactUs = () => {
     return (
-        <div>
+        <div
+        className='max-w-7xl mx-auto'
+        >
             <div className='text-4xl font-bold text-center p-2'
 
             >
                 <h1>Contact Us</h1>
             </div>
-            <div>
+            <div
+            className='grid grid-cols-1 md:grid-cols-2 gap-4'
+            >
                 <div className='m-4'>
                     <div>
                         <div>
@@ -39,7 +42,9 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div>
-
+                    <iframe
+                    className=' w-full h-96 '
+                    src="https://www.google.com/maps/embed/v1/place?q=Jalalpur+High+School,+Kaliachak,+West+Bengal,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
                 </div>
             </div>
         </div>

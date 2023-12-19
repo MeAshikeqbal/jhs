@@ -24,7 +24,7 @@ export async function hmDask() {
   return (
     <article>
       <div
-        className='p-3 max-w-screen-sm mx-auto'
+        className='p-3 max-w-6xl mx-auto'
       >
         <div
           className='flex flex-col items-center justify-center p-1'

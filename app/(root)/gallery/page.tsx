@@ -32,7 +32,9 @@ export async function Gallery() {
     }`)
 
     return (
-        <div>
+        <div
+        className=' max-w-7xl mx-auto'
+        >
 
             <div className='flex flex-col items-center justify-center p-1'>
                 <h1
