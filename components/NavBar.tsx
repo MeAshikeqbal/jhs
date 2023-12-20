@@ -70,8 +70,8 @@ export function Navbar({
   ];
 
   return (
-    <div className=" sticky top-0">
-      <div className="!visible flex items-center md:hidden bg-blue-950 mb-2 h-14">
+    <div className=" sticky top-0 z-50">
+      <div className="!visible flex items-center md:hidden bg-blue-950 h-14">
 
         <Button
           type="button"
