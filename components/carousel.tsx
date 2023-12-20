@@ -52,7 +52,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, aut
         <div {...handlers} className="relative">
         <div className="overflow-hidden relative top-0">
             <div
-                className="flex transition-transform ease-in-out duration-500 h-96 md:h-[500px] lg:h-[650px]"
+                className="flex transition-transform ease-in-out duration-500 h-72 md:h-[500px] lg:h-[650px]"
                 style={{ transform: `translateX(-${curr * 100}%)` }}
             >
                 {slides.map((slide, index) => (
