@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { urlForImage } from '@/sanity/lib/image'
 import { Card, CardDescription } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import GalleryForm from '@/components/GalleryForm'
 
 type gallery = {
     _id: string,
@@ -33,7 +35,7 @@ export async function Gallery() {
 
     return (
         <div
-        className=' max-w-7xl mx-auto'
+            className=' max-w-7xl mx-auto'
         >
 
             <div className='flex flex-col items-center justify-center p-1'>
@@ -83,6 +85,51 @@ export async function Gallery() {
                         </Card>
                     </div>
                 ))}
+            </div>
+            <div
+                className='flex flex-col items-center justify-center p-1'
+            >
+                <div
+                className='flex flex-col items-center justify-center p-2'
+                >
+
+                <h1
+                    className='text-3xl flex flex-col justify-center items-center font-bold text-center text-gray-800 md:text-4xl'
+                    >
+                    Add your memorys form here
+                    <Separator
+                        className='w-4/5 h-1 mt-1 bg-gray-800 rounded-full'
+                    />
+                </h1>
+                    </div>
+
+                <div>
+                    <Dialog>
+                        <DialogTrigger>
+                            <Card
+                            className='w-full p-4 flex flex-col items-center justify-center rounded-sm hover:drop-shadow-xl'
+                            >
+                                <Image
+                                    src='/img/add-photo.png'
+                                    alt='Add photo'
+                                    width={500}
+                                    height={500}
+                                    quality={80}
+                                    className=' w-80 h-full object-cover'
+                                />
+                                <h1
+                                
+                                >
+                                    Add photo
+                                </h1>
+
+                            </Card>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <GalleryForm />
+                        </DialogContent>
+                    </Dialog>
+                </div>
             </div>
         </div>
     )
