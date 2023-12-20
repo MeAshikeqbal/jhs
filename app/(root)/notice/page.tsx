@@ -66,32 +66,35 @@ export async function Notice() {
               {year}
               <Separator className=' w-14 h-1 mt-1 bg-gray-800 rounded-full' />
             </h2>
-            {noticesByYear[year].map((n: notice) => (
-              <div key={n._id} className='p-1.5'>
+            {noticesByYear[year]
+              .sort((a: { date: string | number | Date; }, b: { date: string | number | Date; }) => new Date(b.date).getTime() - new Date(a.date).getTime())
+              .map((n: notice) => (<div key={n._id} className='p-1.5'>
                 <Dialog>
                   <DialogTrigger className="flex w-full items-start justify-start h-full p-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50">
                     <Bookmark className='w-6 h-6 text-gray-800 mr-2' />
-                    {n.title} - {new Date(n.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'short', year: 'numeric' })}
+                    {n.title} - {new Date(n.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
                   </DialogTrigger>
                   <DialogContent>
                     <div className='flex flex-col items-center justify-center'>
-                      <Image
-                        src={n.image.asset.url}
-                        alt={n.title}
-                        width={500}
-                        height={300}
-                        placeholder='blur'
-                        blurDataURL={n.image.asset.metadata.lqip}
-                        className='rounded-lg'
-                      />
+                      {n.image && n.image.asset && n.image.asset.url ? (
+                        <Image
+                          src={n.image.asset.url}
+                          alt={n.title}
+                          width={500}
+                          height={300}
+                          placeholder='blur'
+                          blurDataURL={n.image.asset.metadata.lqip}
+                          className='rounded-lg'
+                        />
+                      ) : null}
                     </div>
                     <DialogTitle>{n.title}</DialogTitle>
                     <DialogDescription>{n.description}</DialogDescription>
-                    <DialogDescription>{new Date(n.date).toLocaleDateString('en-GB',{ day: '2-digit', month: 'long', year: 'numeric' })}</DialogDescription>
+                    <DialogDescription>{new Date(n.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</DialogDescription>
                   </DialogContent>
                 </Dialog>
               </div>
-            ))}
+              ))}
 
           </div>
         ))}

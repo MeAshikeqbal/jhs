@@ -2,7 +2,7 @@
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
 import { client } from '@/sanity/lib/client'
-import {  CalendarCheck,  CalendarX, MapPin } from 'lucide-react'
+import { CalendarCheck, CalendarX, MapPin } from 'lucide-react'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 
@@ -88,47 +88,49 @@ export async function Events() {
 
 
           {futureEvents.length > 0 ? (
-            futureEvents.map((event: { _id: string ; title: string ; description: string ; venue: string ; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
-              <div
-                key={event._id}
-                className='flex p-1.5'
-              >
-
-                <Dialog
+            futureEvents
+              .sort((a: { date: string | number | Date }, b: { date: string | number | Date }) => new Date(a.date).getTime() - new Date(b.date).getTime())
+              .map((event: { _id: string; title: string; description: string; venue: string; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
+                <div
+                  key={event._id}
+                  className='flex p-1.5'
                 >
-                  <DialogTrigger
-                    className="flex w-full items-start justify-start h-full p-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50"
+
+                  <Dialog
                   >
-                    <h3
-                      className='flex items-center justify-center'
+                    <DialogTrigger
+                      className="flex w-full items-start justify-start h-full p-2 text-sm font-medium text-gray-800 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-50"
                     >
-                      <CalendarCheck className='w-6 h-6 text-gray-800 mr-2' />
-                      {event.title} - {new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
-                    </h3>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <Image
-                      src={event.image.asset.url}
-                      alt={String(event.title)}
-                      width={500}
-                      height={300}
-                      placeholder='blur'
-                      blurDataURL={event.image.asset.metadata.lqip}
-                    />
-                    <DialogTitle>{event.title}</DialogTitle>
-                    <DialogDescription>{event.description}</DialogDescription>
-                    <DialogDescription
-                      className='flex items-center'
-                    >
-                      <MapPin className='w-4 h-4 text-gray-500 mr-1' />
-                      {event.venue}</DialogDescription>
+                      <h3
+                        className='flex items-center justify-center'
+                      >
+                        <CalendarCheck className='w-6 h-6 text-gray-800 mr-2' />
+                        {event.title} - {new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+                      </h3>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <Image
+                        src={event.image.asset.url}
+                        alt={String(event.title)}
+                        width={500}
+                        height={300}
+                        placeholder='blur'
+                        blurDataURL={event.image.asset.metadata.lqip}
+                      />
+                      <DialogTitle>{event.title}</DialogTitle>
+                      <DialogDescription>{event.description}</DialogDescription>
+                      <DialogDescription
+                        className='flex items-center'
+                      >
+                        <MapPin className='w-4 h-4 text-gray-500 mr-1' />
+                        {event.venue}</DialogDescription>
 
-                    <DialogDescription>{new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</DialogDescription>
-                  </DialogContent>
-                </Dialog>
-              </div>
+                      <DialogDescription>{new Date(event.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</DialogDescription>
+                    </DialogContent>
+                  </Dialog>
+                </div>
 
-            ))
+              ))
           ) : (
             <p
               className='m-2 text-gray-800'
@@ -143,7 +145,7 @@ export async function Events() {
             <Separator className=' w-36 h-1 mt-1 bg-gray-800 rounded-full' />
           </h2>
           {pastEvents.length > 0 ? (
-            pastEvents.map((event: { _id: string ; title: string ; venue: string ; description: string ; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
+            pastEvents.map((event: { _id: string; title: string; venue: string; description: string; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
               <div
                 key={event._id}
                 className='flex p-1.5'

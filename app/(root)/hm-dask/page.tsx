@@ -6,7 +6,6 @@ import PortableText from 'react-portable-text'
 type HmDask = {
   name: string,
   designation: string,
-  image: string | any,
   title: string,
   content: Array<string>
 }
