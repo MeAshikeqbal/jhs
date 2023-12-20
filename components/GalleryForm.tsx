@@ -122,10 +122,12 @@ function GalleryForm() {
                     <Label htmlFor="image">Image</Label>
                     <Input type="file" name="image" id="image" placeholder='your picture' onChange={handleImageChange} required />
                     <Label htmlFor="title">Image title</Label>
-                    <Input required type="text" placeholder="Your Name" name="title" id="title" value={formState.title} onChange={handleChange} />
+                    <Input required type="text" placeholder="Image title" name="title" id="title" value={formState.title} onChange={handleChange} />
                     <Label htmlFor="description">Image discription</Label>
                     <Input required type="text" placeholder="About the image" name="description" id="description" value={formState.description} onChange={handleChange} />
-                    <Label htmlFor="date">Date</Label>
+                    <Label htmlFor="date">
+                        Date of when the picture was taken
+                    </Label>
                     <Input required type="date" name="date" id="date" value={formState.date} onChange={handleChange} />
                     <div
                         className='flex items-center space-x-2'
@@ -134,7 +136,7 @@ function GalleryForm() {
                         <Label
                             htmlFor='checkbox'
                         >
-                            I agree to share my name and picture on the website.
+                            I agree to share this information on the website.
                         </Label>
                     </div>
                     <Button type="submit" className="w-full p-2 mt-4 text-lg font-bold text-white bg-blue-950 rounded-md hover:bg-blue-900" disabled={loading}>

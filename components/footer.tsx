@@ -53,9 +53,21 @@ const footer = () => {
                                     Student Corner
                                 </h3>
                                 <Separator className='w-28 bg-gray-400 mx-4' />
+                                <div
+                                className='flex flex-col'
+                                >
+
+
                                 <Link href='/alumni/submission' className='text-gray-400 font-semibold'>
                                     Alumni Submission
                                 </Link>
+                                <Link
+                                href='/gallery/submission'
+                                className='text-gray-400 font-semibold'
+                                >
+                                Gallery Submission
+                                </Link>
+                                    </div>
                             </div>
                             <Separator className='hidden md:block w-0.5 h-full bg-gray-400 mx-4' />
                             <div>
