@@ -104,7 +104,7 @@ export function Navbar({
       <div className="bg-blue-950 z-10 !visible hidden md:block ">
 
         <nav
-          className='flex flex-col items-center justify-between w-full px-4 py-4 mx-auto space-y-4 text-sm font-medium text-center sm:px-6 sm:flex-row sm:space-y-0 sm:space-x-4 z-10 max-w-6xl'
+          className='flex flex-col h-16 items-center justify-between w-full px-4 py-4 mx-auto space-y-4 text-sm font-medium text-center sm:px-6 sm:flex-row sm:space-y-0 sm:space-x-4 z-10 max-w-6xl'
         >
           {routes.map((route) => (
             <Link
