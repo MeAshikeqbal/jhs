@@ -20,7 +20,7 @@ const footer = () => {
                             <p className="text-sm font-medium">Jalalpur High School (H.S.)</p>
                             <p className="text-sm font-medium">Jalalpur, Malda, West Bengal 732125</p>
                         </div>
-                        <div className='flex flex-row justify-evenly p-4 md:mt-4'>
+                        <div className='flex flex-col md:flex-row justify-evenly p-4 md:mt-4'>
                             <div>
                                 <h3 className='text-gray-400 text-lg font-bold'>
                                     Quick links

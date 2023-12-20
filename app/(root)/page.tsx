@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { BookOpen, Facebook, GraduationCap, Presentation } from "lucide-react"
 import Counter from "@/components/counter"
 import FacebookPage from "@/components/facebook"
+import Image from "next/image"
 
 
 export async function home() {
@@ -66,6 +67,51 @@ export async function home() {
             </Link>
           </div>
         </div>
+        <div
+          className="bg-blue-950/30 my-2 py-4 w-full flex flex-col  justify-center items-center max-w-none"
+        >
+          <h1
+            className="text-4xl font-bold text-center text-blue-950"
+          >
+            Affiliation
+          </h1>
+          <div
+            className="my-4 flex flex-col md:flex-row md:justify-evenly justify-center items-center p-4 space-y-2 md:space-y-0 md:space-x-4 text-center text-gray-600 max-w-7xl mx-auto"
+          >
+            <div
+              className="flex flex-col justify-center items-center space-y-2"
+            >
+              <Image
+                src="/img/wbbse.png"
+                alt="wbbse"
+                className="w-40"
+                width={200}
+                height={200}
+              />
+              <h4
+                className="flex text-2xl font-bold text-blue-950"
+              >
+                WBBSE
+              </h4>
+            </div>
+            <div
+              className="flex flex-col justify-center items-center space-y-2"
+            >
+              <Image
+                src="/img/wbchse.webp"
+                alt="wbchse"
+                width={200}
+                height={200}
+                className="w-40"
+              />
+              <h4
+                className="flex text-2xl font-bold text-blue-950"
+              >
+                WBCHSE
+              </h4>
+            </div>
+          </div>
+        </div>
         <div className="flex p-2 flex-col md:flex-row md: justify-center max-w-6xl mx-auto space-y-2.5 md:space-y-0 md:space-x-4">
           <Card className="flex flex-col justify-center items-center w-full md:w-1/3 p-4 space-y-2 hover:bg-blue-950/30 transition ease-in-out">
             <CardHeader className="text-2xl font-bold text-center text-blue-950">
@@ -73,7 +119,7 @@ export async function home() {
             </CardHeader>
             <CardContent>
               <p className="text-justify text-gray-600">
-                The Middle School curriculum is designed to meet the needs of students in the 6th, 7th and 8th grades. The curriculum is designed to provide a strong foundation in the core academic areas of English, Math, Science and Social Studies. Students also have the opportunity to explore a variety of elective courses in the areas of Art, Music, Physical Education, and Technology. The Middle School program is designed to provide a smooth transition from elementary school to high school.
+                The Middle School curriculum is designed to meet the needs of students in the 6th, 7th and 8th grades. The curriculum is designed to provide a strong foundation in the core academic areas of English, Math, Science and Social Studies. Students also have the opportunity to explore a variety of elective courses in the areas of Art, Music, Physical Education, and Technology. The Middle School program is designed to provide a smooth transition from middle school to high school.
               </p>
             </CardContent>
           </Card>
@@ -83,7 +129,7 @@ export async function home() {
             </CardHeader>
             <CardContent>
               <p className="text-justify text-gray-600">
-                The High School curriculum is designed to meet the needs of students in the 9th, 10th, 11th and 12th grades. The curriculum is designed to provide a strong foundation in the core academic areas of English, Math, Science and Social Studies. Students also have the opportunity to explore a variety of elective courses in the areas of Art, Music, Physical Education, and Technology. The High School program is designed to provide a smooth transition from middle school to college.
+                The High School curriculum is designed to meet the needs of students in the 9th, 10th, 11th and 12th grades. The curriculum is designed to provide a strong foundation in the core academic areas of English, Math, Science and Social Studies. Students also have the opportunity to explore a variety of elective courses in the areas of Art, Music, Physical Education, and Technology. The High School program is designed to provide a smooth transition from highschool school to college.
               </p>
             </CardContent>
           </Card>
@@ -140,8 +186,8 @@ export async function home() {
           <div
           >
 
-            <FacebookPage/>
-</div>
+            <FacebookPage />
+          </div>
         </div>
       </div>
     </div>
