@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Toaster, toast } from 'react-hot-toast'
 import { Checkbox } from '@/components/ui/checkbox';
-
 import { useRouter } from 'next/navigation';
 
 
@@ -21,20 +20,23 @@ const client = createClient({
 });
 
 type FormState = {
-    image: File | null;
-    name: string;
-    batch: string;
+    title: '',
+    description: '',
+    image: null,
+    date: '',
 };
 
 function GalleryForm() {
 
     const router = useRouter();
 
-    const [formState, setFormState] = useState<{ image: File | null, name: string, batch: string }>({
+    const [formState, setFormState] = useState<{ image: File | null, title: string, description: string; date: string }>({
+        title: '',
+        description: '',
         image: null,
-        name: '',
-        batch: '',
+        date: '',
     });
+
     const handleChange = (event: { target: { name: any; value: any; }; }) => {
         setFormState({
             ...formState,
@@ -58,7 +60,7 @@ function GalleryForm() {
 
         setLoading(true);
 
-        const { image, name, batch } = formState;
+        const { image, title, date, description } = formState;
 
         if (image === null) {
             toast.error('Please upload an image!');
@@ -69,23 +71,24 @@ function GalleryForm() {
         try {
             const imageAsset = await client.assets.upload('image', image);
 
-            const alumni = {
-                _type: 'alumni',
+            const gallery = {
+                _type: 'gallery',
                 image: {
                     _type: 'image',
                     asset: {
                         _ref: imageAsset._id,
                     },
                 },
-                name,
-                batch: Number(batch),
+                title,
+                description,
+                date: (date),
             };
 
-            const response = await client.create(alumni);
+            const response = await client.create(gallery);
 
 
-            toast.success('Alumni added successfully!');
-            window.location.href = '/alumni';
+            toast.success('Image added successfully!');
+            window.location.href = '/gallery';
         } catch (error) {
             toast.error('Something went wrong!');
         } finally {
@@ -93,8 +96,9 @@ function GalleryForm() {
             setLoading(false);
             setFormState({
                 image: null,
-                name: '',
-                batch: '',
+                title: '',
+                description: '',
+                date: '',
             });
 
 
@@ -103,26 +107,29 @@ function GalleryForm() {
 
     return (
         <div
-            className='flex items-center justify-center p-5 bg-gray-100'
+            className='flex items-center justify-center'
         >
-            <Card
-                className='flex flex-col items-center justify-center w-96 p-4 space-y-4 bg-white rounded-md shadow-md'
+            <div
+                className='flex flex-col items-center justify-center w-96 p-4 space-y-4'
             >
-                <h1 className='text-2xl font-bold'>Alumni Form</h1>
+                <h1 className='text-2xl font-bold'>
+                    Gallery Form
+                </h1>
+
                 <form
                     className='flex flex-col space-y-2 w-full'
                     onSubmit={handleSubmit}>
                     <Label htmlFor="image">Image</Label>
                     <Input type="file" name="image" id="image" placeholder='your picture' onChange={handleImageChange} required />
-                    <Label htmlFor="name">Name</Label>
-                    <Input required type="text" placeholder="Your Name" name="name" id="name" value={formState.name} onChange={handleChange} />
-                    <Label htmlFor="batch">Year of passing Highschool</Label>
-                    <Input required type="number" placeholder="2021" name="batch" id="batch" value={formState.batch} onChange={handleChange} />
+                    <Label htmlFor="title">Image title</Label>
+                    <Input required type="text" placeholder="Your Name" name="title" id="title" value={formState.title} onChange={handleChange} />
+                    <Label htmlFor="description">Image discription</Label>
+                    <Input required type="text" placeholder="About the image" name="description" id="description" value={formState.description} onChange={handleChange} />
+                    <Label htmlFor="date">Date</Label>
+                    <Input required type="date" name="date" id="date" value={formState.date} onChange={handleChange} />
                     <div
                         className='flex items-center space-x-2'
                     >
-
-
                         <Checkbox id='chackbox' name='chackbox' required />
                         <Label
                             htmlFor='checkbox'
@@ -135,7 +142,7 @@ function GalleryForm() {
                     </Button>
                 </form>
                 <Toaster />
-            </Card>
+            </div>
         </div>
     );
 }

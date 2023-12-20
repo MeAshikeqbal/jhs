@@ -16,7 +16,7 @@ const client = createClient({
   dataset: 'production',
   token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
   useCdn: false,
-  apiVersion:process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-12-14',
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-12-14',
 });
 
 type FormState = {
@@ -85,7 +85,7 @@ function AlumniForm() {
 
       toast.success('Alumni added successfully!');
       window.location.href = '/alumni?nocache=' + new Date().getTime();
-        } catch (error) {
+    } catch (error) {
       toast.error('Something went wrong!');
     } finally {
 
@@ -109,26 +109,24 @@ function AlumniForm() {
       >
         <h1 className='text-2xl font-bold'>Alumni Form</h1>
         <form
-        className='flex flex-col space-y-2 w-full'
-        onSubmit={handleSubmit}>
+          className='flex flex-col space-y-2 w-full'
+          onSubmit={handleSubmit}>
           <Label htmlFor="image">Image</Label>
           <Input type="file" name="image" id="image" placeholder='your picture' onChange={handleImageChange} required />
           <Label htmlFor="name">Name</Label>
           <Input required type="text" placeholder="Your Name" name="name" id="name" value={formState.name} onChange={handleChange} />
           <Label htmlFor="batch">Year of passing Highschool</Label>
           <Input required type="number" placeholder="2021" name="batch" id="batch" value={formState.batch} onChange={handleChange} />
-         <div
-         className='flex items-center space-x-2'
-         >
-
-         
-          <Checkbox id='chackbox' name='chackbox' required/>
+          <div
+            className='flex items-center space-x-2'
+          >
+            <Checkbox id='chackbox' name='chackbox' required />
             <Label
-            htmlFor='checkbox'
+              htmlFor='checkbox'
             >
               I agree to share my name and picture on the website.
             </Label>
-            </div>
+          </div>
           <Button type="submit" className="w-full p-2 mt-4 text-lg font-bold text-white bg-blue-950 rounded-md hover:bg-blue-900" disabled={loading}>
             {loading ? 'Loading...' : 'Submit'}
           </Button>

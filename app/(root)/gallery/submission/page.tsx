@@ -1,4 +1,4 @@
-import AlumniForm from '@/components/AlumniForm';
+import GalleryForm from '@/components/GalleryForm';
 import { Card } from '@/components/ui/card';
 
 function Page() {
@@ -7,7 +7,7 @@ function Page() {
       <Card
       className='w-full max-w-xl p-8 m-auto my-10 bg-white rounded-md shadow-md dark:bg-gray-800'
       >
-      <AlumniForm />
+      <GalleryForm />
       </Card>
     </div>
   );
