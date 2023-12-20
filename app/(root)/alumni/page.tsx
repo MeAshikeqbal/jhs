@@ -1,9 +1,12 @@
-import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
+/* eslint-disable react/no-unescaped-entities */
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { client } from "@/sanity/lib/client"
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { Key, ReactElement, JSXElementConstructor, ReactNode, PromiseLikeOfReactNode } from "react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import AlumniForm from '@/components/AlumniForm';
+
 
 type Alumni = {
   _id: string;
@@ -52,7 +55,9 @@ export async function alumni() {
     return groups;
   }, {});
   return (
-    <div>
+    <div
+      className="max-w-7xl mx-auto"
+    >
       {Object.entries(groupedAlumni).map(([batch, alumniGroup]) => (
         <div key={batch}
           className="max-w-7xl mx-auto"
@@ -64,7 +69,7 @@ export async function alumni() {
             <Separator className="h-1 mt-1 bg-gray-800 rounded-full mb-2 max-w-full" />
           </h1>
           <div className="flex flex-wrap justify-center">
-            {alumniGroup?.map((alumni: { _id: Key | null | undefined; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined; }; }; }; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | PromiseLikeOfReactNode | null | undefined; }) => (
+            {alumniGroup?.map((alumni: { _id: string ; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined; }; }; }; name: string ; }) => (
               <div key={alumni._id} className="p-2">
                 <Card className="flex flex-col items-center w-64 h-72 pt-3">
                   <CardContent>
@@ -87,6 +92,52 @@ export async function alumni() {
           </div>
         </div>
       ))}
+      <div
+        className="max-w-7xl mx-auto"
+      >
+        <h1
+          className="flex flex-col items-center justify-center text-3xl font-bold text-gray-800 md:text-4xl p-4"
+        >
+          Don't see your name?
+          <Separator className="h-1 mt-1 bg-gray-800 rounded-full mb-2 max-w-full" />
+        </h1>
+        <div
+        className="flex flex-col items-center justify-center"
+        >
+
+        <Dialog>
+          <DialogTrigger>
+            <div
+            className="p-2"
+            >
+
+              <Card
+                className="flex flex-col items-center w-64 h-72 pt-3"
+              >
+                <CardContent>
+                  <Image
+                    src="/img/add.svg"
+                    alt="Add"
+                    width={500}
+                    height={500}
+                    className="rounded-full h-52 w-52"
+                  />
+                </CardContent>
+                <CardTitle className="text-xl font-bold text-center text-gray-800 md:text-2xl">
+                  Add Alumni
+                </CardTitle>
+              </Card>
+            </div>
+          </DialogTrigger>
+          <DialogContent
+            className="bg-white w-full p-5 rounded-md shadow-md"
+          >
+            <AlumniForm />
+          </DialogContent>
+        </Dialog>
+        </div>
+
+      </div>
     </div>
   );
 }

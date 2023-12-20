@@ -63,8 +63,8 @@ const footer = () => {
                                     Admin Corner
                                 </h3>
                                 <Separator className='w-24 bg-gray-400 mx-4' />
-                                <Link href='/dashboard' className='text-gray-400 font-semibold'>
-                                    Admin Dashboard
+                                <Link href='/dashbord' className='text-gray-400 font-semibold'>
+                                    Admin Dashbord
                                 </Link>
                             </div>
                         </div>
