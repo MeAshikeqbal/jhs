@@ -252,11 +252,10 @@ export async function teachers() {
                                             width={200}
                                             height={200}
                                             loading="lazy"
-                                            className="rounded-full w-52 h-52"
+                                            className="rounded-full w-52 h-52 object-cover"
                                             placeholder="blur"
                                             blurDataURL={pt.image?.asset?.metadata?.lqip}
                                             objectPosition="center"
-                                            objectFit="cover"
                                         />
                                     </CardHeader>
                                     <CardContent>

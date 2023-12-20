@@ -45,7 +45,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, aut
     return (
         <div className="overflow-hidden relative top-0">
             <div
-                className="flex transition-transform ease-out duration-500 h-56 md:h-96 lg:h-96"
+                className="flex transition-transform ease-in-out duration-500 h-96 md:h-[500px] lg:h-[650px]"
                 style={{ transform: `translateX(-${curr * 100}%)` }}
             >
                 {slides.map((slide, index) => (
@@ -58,10 +58,10 @@ const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, aut
                             height={500}
                             placeholder="blur"
                             blurDataURL={slide.image.asset.metadata.lqip}
-                            className="object-cover rounded-b-3xl w-full h-full absolute top-0 left-0 sm:h-80 md:h-96 lg:h-full"
+                            className=" object-cover rounded-b-3xl w-full h-full absolute top-0 left-0 sm:h-full md:h-full lg:h-full xl:h-full"
                         />
-
-                        <h1 className="absolute bottom-0 left-0 p-4 text-white font-bold text-2xl bg-black bg-opacity-50 sm:text-3xl md:text-4xl">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/90 to-white/10 opacity-100 rounded-b-3xl"></div>
+                        <h1 className="absolute bottom-3 md:bottom-8 left-4 p-4 text-white font-bold text-2xl sm:text-3xl md:text-4xl">
                             {slide.title}
                         </h1>
                     </div>
@@ -70,13 +70,13 @@ const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, aut
             <div className="absolute inset-0 flex items-center justify-between p-4">
                 <button
                     onClick={prev}
-                    className="p-1 rounded-full shadow bg-white/40 text-gray-800 hover:bg-white"
+                    className="p-1 rounded-full shadow bg-white/40 text-gray-800 opacity-40 hover:bg-white"
                 >
                     <ChevronLeft size={24} className=" opacity-40 hover:opacity-100" />
                 </button>
                 <button
                     onClick={next}
-                    className="p-1 rounded-full shadow bg-white/40 text-gray-800 hover:bg-white"
+                    className="p-1 rounded-full shadow bg-white/40 text-gray-800 opacity-40 hover:bg-white"
                 >
                     <ChevronRight size={24} className=" opacity-40 hover:opacity-100" />
                 </button>

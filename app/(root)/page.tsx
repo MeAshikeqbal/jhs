@@ -4,15 +4,10 @@ import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { BookOpen, Facebook, FacebookIcon, GraduationCap, Presentation } from "lucide-react"
+import { BookOpen, Facebook, GraduationCap, Presentation } from "lucide-react"
 import Counter from "@/components/counter"
 import FacebookPage from "@/components/facebook"
 
-type poster = {
-  _id: string,
-  title: string,
-  image: string | any,
-}
 
 export async function home() {
 
@@ -43,13 +38,13 @@ export async function home() {
           className="max-w-6xl mx-auto"
         >
           <h1
-            className=" flex flex-col items-center text-4xl font-bold text-center p-4 text-blue-950"
+            className=" flex flex-col items-center text-5xl font-bold text-center p-4 text-blue-950"
           >
             Welcome to Jalalpur High School
             <Separator className=" w-4/5 p-0.5 rounded-full bg-blue-950 m-2" />
           </h1>
           <div
-            className="p-4 space-y-2 text-justify text-lg max-w-3xl text-gray-600"
+            className="p-4 space-y-2 text-justify text-lg max-w-4xl text-gray-600"
           >
             <p>
               Our vision is to provide a happy, caring and stimulating environment where studens will recognize and achieve their fullest potential, so that they can make their best contribution to society.
@@ -82,7 +77,7 @@ export async function home() {
               </p>
             </CardContent>
           </Card>
-          <Card className="flex flex-col justify-center items-center w-full md:w-1/3 p-4 space-y-2 hover:bg-blue-950/30 transition ease-in-out transition-all">
+          <Card className="flex flex-col justify-center items-center w-full md:w-1/3 p-4 space-y-2 hover:bg-blue-950/30 transition ease-in-out">
             <CardHeader className="text-2xl font-bold text-center text-blue-950">
               High School
             </CardHeader>
@@ -93,7 +88,7 @@ export async function home() {
             </CardContent>
           </Card>
         </div>
-        <div className="bg-blue-950/30 w-full flex flex-col  justify-center items-center max-w-none">
+        <div className="bg-blue-950/30 my-2 py-4 w-full flex flex-col  justify-center items-center max-w-none">
           <div className="flex flex-col md:flex-row md:justify-between justify-center items-center p-4 space-y-2 md:space-y-0 md:space-x-4 text-center text-gray-600 max-w-7xl mx-auto">
             <div className="flex flex-col md:justify-between justify-center items-center space-y-2">
               <Presentation size={60} className="text-blue-950" />

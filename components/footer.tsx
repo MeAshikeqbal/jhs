@@ -1,62 +1,82 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Separator } from './ui/separator'
 
 
 const footer = () => {
     const year = new Date().getFullYear()
     return (
-        <div className=" bg-blue-950 mt-2">
-            <div className='max-w-6xl mx-auto justify-center'>
-                <div className='md:flex justify-around'>
-                    <div className="flex flex-col p-6 text-gray-400">
-                        <Image
-                            src='/img/logo.svg'
-                            alt='logo'
-                            width={50}
-                            height={50}
-                        />
-                        <p className="text-sm font-medium">Jalalpur High School (H.S.)</p>
-                        <p className="text-sm font-medium">Jalalpur, Malda, West Bengal 732125</p>
-                    </div>
-                    <div className='flex justify-evenly p-4 md:mt-4'>
-                        <div>
-                            <h3>
-                                quick links
-                            </h3>
-                            <ul>
-                                <li>Home</li>
-                                <li>Notice</li>
-                                <li>HM Dask</li>
-                                <li>Teachers</li>
-                                <li>Gallery</li>
-                                <li>Alumni</li>
-                                <li>Contact Us</li>
-                                <li>Academic Calendar</li>
-                                <li>Events</li>
-                                <li>About Us</li>
-                            </ul>
+        <div>
+            <div className="bg-blue-950 mt-2">
+                <div className='max-w-6xl mx-auto flex justify-center'>
+                    <div className='flex flex-col md:flex-row justify-around'>
+                        <div className="flex flex-col p-6 text-gray-400">
+                            <Image
+                                src='/img/logo.svg'
+                                alt='logo'
+                                width={50}
+                                height={50}
+                            />
+                            <p className="text-sm font-medium">Jalalpur High School (H.S.)</p>
+                            <p className="text-sm font-medium">Jalalpur, Malda, West Bengal 732125</p>
                         </div>
-                        <div className='mr-5 ml-5'>
-                            <h3>
-                                Student Corner
-                            </h3>
-                            <Link href='/alumni/submission'>
-                                Alumni Submition
-                            </Link>
-                        </div>
-                        <div>
-                            <Link href='/dashbord'>
-                                    Admin Dashbord
-                            </Link>
+                        <div className='flex flex-row justify-evenly p-4 md:mt-4'>
+                            <div>
+                                <h3 className='text-gray-400 text-lg font-bold'>
+                                    Quick links
+                                </h3>
+                                <Separator className='w-20 bg-gray-400 mx-4' />
+                                <ul>
+                                    <li className='text-gray-400 font-semibold'>
+                                        <Link href='/notice'>Notice</Link>
+                                    </li>
+                                    <li className='text-gray-400 font-semibold'>
+                                        <Link href='/alumni'>Alumni</Link>
+                                    </li>
+                                    <li className='text-gray-400 font-semibold'>
+                                        <Link href='/gallery'>Gallery</Link>
+                                    </li>
+                                    <li className='text-gray-400 font-semibold'>
+                                        <Link href='/contact-us'>Contact Us</Link>
+                                    </li>
+                                    <li className='text-gray-400 font-semibold'>
+                                        <Link href='/academic-calendar'>Academic Calendar</Link>
+                                    </li>
+                                    <li className='text-gray-400 font-semibold'>
+                                        <Link href='/events'>Events</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <Separator className='hidden md:block w-0.5 h-full bg-gray-400 mx-4' />
+                            <div>
+                                <h3 className='text-gray-400 text-lg font-bold'>
+                                    Student Corner
+                                </h3>
+                                <Separator className='w-28 bg-gray-400 mx-4' />
+                                <Link href='/alumni/submission' className='text-gray-400 font-semibold'>
+                                    Alumni Submission
+                                </Link>
+                            </div>
+                            <Separator className='hidden md:block w-0.5 h-full bg-gray-400 mx-4' />
+                            <div>
+                                <h3 className='text-gray-400 text-lg font-bold'>
+                                    Admin Corner
+                                </h3>
+                                <Separator className='w-24 bg-gray-400 mx-4' />
+                                <Link href='/dashboard' className='text-gray-400 font-semibold'>
+                                    Admin Dashboard
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div className="flex flex-col items-center justify-center py-6 text-gray-400">
+                    <p className="text-sm font-medium">© {year} Jalalpur High School (H.S.)</p>
+                    <p className="text-sm font-medium">All rights reserved.</p>
+                    <p className="text-sm font-medium">Designed & Devloved by <a href="https:itsashik.info">Ashik Eqbal</a></p>
+                </div>
             </div>
-            <div className="flex flex-col items-center justify-center py-6 text-gray-400">
-                <p className="text-sm font-medium">© {year} Jalalpur High School (H.S.)</p>
-                <p className="text-sm font-medium">All rights reserved.</p>
-                <p className="text-sm font-medium">Designed & Devloved by <a href="https:itsashik.info">Ashik Eqbal</a></p>
-            </div>
+
         </div>
     )
 }

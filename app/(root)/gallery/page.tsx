@@ -64,11 +64,10 @@ export async function Gallery() {
                                 width={500}
                                 height={500}
                                 layout='responsive'
-                                objectFit='cover'
                                 quality={80}
                                 placeholder='blur'
                                 blurDataURL={g.image.asset.metadata.lqip}
-                                className='rounded-t-sm'
+                                className='rounded-t-sm object-cover'
                                 loading='lazy'
                             />
                             <div>
