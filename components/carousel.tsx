@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
+import { useSwipeable } from 'react-swipeable';
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 
@@ -24,9 +25,14 @@ const fetchPosters = async () => {
 };
 
 
+
 const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, autoSlideInterval = 3000 }) => {
     const [curr, setCurr] = useState(0);
-
+    const handlers = useSwipeable({
+        onSwipedLeft: () => next(),
+        onSwipedRight: () => prev(),
+        trackMouse: true
+    });    
 
     const next = useCallback(() => {
         setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
@@ -43,6 +49,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, aut
     }, [autoSlide, autoSlideInterval, next, slides]);
 
     return (
+        <div {...handlers} className="relative">
         <div className="overflow-hidden relative top-0">
             <div
                 className="flex transition-transform ease-in-out duration-500 h-96 md:h-[500px] lg:h-[650px]"
@@ -91,6 +98,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, aut
                     />
                 ))}
             </div>
+        </div>
         </div>
     );
 };
