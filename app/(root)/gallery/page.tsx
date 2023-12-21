@@ -90,24 +90,24 @@ export async function Gallery() {
                 className='flex flex-col items-center justify-center p-1'
             >
                 <div
-                className='flex flex-col items-center justify-center p-2'
+                    className='flex flex-col items-center justify-center p-2'
                 >
 
-                <h1
-                    className='text-3xl flex flex-col justify-center items-center font-bold text-center text-gray-800 md:text-4xl'
+                    <h1
+                        className='text-3xl flex flex-col justify-center items-center font-bold text-center text-gray-800 md:text-4xl'
                     >
-                    Add your memorys form here
-                    <Separator
-                        className='w-4/5 h-1 mt-1 bg-gray-800 rounded-full'
-                    />
-                </h1>
-                    </div>
+                        Add your memorys form here
+                        <Separator
+                            className='w-4/5 h-1 mt-1 bg-gray-800 rounded-full'
+                        />
+                    </h1>
+                </div>
 
                 <div>
                     <Dialog>
                         <DialogTrigger>
                             <Card
-                            className='w-full p-4 flex flex-col items-center justify-center rounded-sm hover:drop-shadow-xl'
+                                className='w-full p-4 flex flex-col items-center justify-center rounded-sm hover:drop-shadow-xl'
                             >
                                 <Image
                                     src='/img/add-photo.png'
@@ -118,7 +118,7 @@ export async function Gallery() {
                                     className=' w-80 h-full object-cover'
                                 />
                                 <h1
-                                
+
                                 >
                                     Add photo
                                 </h1>
