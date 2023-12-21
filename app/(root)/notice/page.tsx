@@ -15,6 +15,8 @@ type notice = {
   image: string | any,
 }
 
+export const revalidate = 60;
+
 export async function Notice() {
 
   const notice = await client.fetch(`*[_type == "notice" ] | order(_createdAt asc)

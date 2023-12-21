@@ -14,6 +14,8 @@ type gallery = {
     date: string,
 }
 
+export const revalidate = 60;
+
 
 export async function Gallery() {
 

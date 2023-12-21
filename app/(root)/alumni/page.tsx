@@ -39,6 +39,8 @@ type AlumniType = {
 
 type GroupedAlumni = Record<string, Alumni[]>;
 
+export const revalidate = 60;
+
 export async function alumni() {
   const alumni = await client.fetch(`*[_type == "alumni"]{
     _id,

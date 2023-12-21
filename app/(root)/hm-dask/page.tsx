@@ -10,6 +10,9 @@ type HmDask = {
   content: Array<string>
 }
 
+export const revalidate = 60;
+
+
 export async function hmDask() {
 
   const hmDask = await client.fetch(`*[_type == "hmdesk"]{

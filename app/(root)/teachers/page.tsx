@@ -48,6 +48,7 @@ type pt = {
     date: string,
 }
 
+export const revalidate = 60;
 
 export async function teachers() {
     const hm = await client.fetch(`*[_type == "teachers" && designation == "Headmaster"]{
