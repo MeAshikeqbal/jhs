@@ -5,6 +5,7 @@ import { Card, CardDescription } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import GalleryForm from '@/components/galleryform'
+import Head from 'next/head'
 
 type gallery = {
     _id: string,
@@ -39,6 +40,9 @@ export async function Gallery() {
         <div
             className=' max-w-7xl mx-auto'
         >
+            <Head>
+                <title>Gallery - JHS</title>
+            </Head>
 
             <div className='flex flex-col items-center justify-center p-1'>
                 <h1

@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Separator } from "@/components/ui/separator";
 import { client } from "@/sanity/lib/client";
 import { Bookmark } from "lucide-react";
+import Head from "next/head";
 import Image from "next/image";
 import { JSX, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react";
 
@@ -50,6 +51,9 @@ export async function Notice() {
 
   return (
     <>
+    <Head>
+        <title>Notice - JHS</title>
+    </Head>
       <div className='flex flex-col items-center justify-center p-1 '>
         <h1 className='text-3xl font-bold text-center text-gray-800 md:text-4xl'>
           Notice

@@ -1,4 +1,5 @@
 import { Separator } from '@/components/ui/separator'
+import Head from 'next/head'
 import React from 'react'
 
 const page = () => {
@@ -6,6 +7,10 @@ const page = () => {
     <div
       className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'
     >
+
+      <Head>
+        <title>Acadamic Calender - JHS</title>
+      </Head>
       <div className='flex flex-col items-center justify-center p-1'>
         <h1
           className='text-3xl font-bold text-center text-gray-800 md:text-4xl'

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import AlumniForm from '@/components/alumniform';
+import Head from "next/head";
 
 
 type Alumni = {
@@ -73,6 +74,10 @@ export async function alumni() {
     <div
       className="max-w-7xl mx-auto"
     >
+      <Head>
+        <title>Alumni - JHS</title>
+      </Head>
+
       {Object.entries(groupedAlumni).map(([batch, alumniGroup]) => (
         <div key={batch}
           className="max-w-7xl mx-auto"

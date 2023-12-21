@@ -9,6 +9,7 @@ import { client } from "@/sanity/lib/client"
 import Image from "next/image"
 import { urlForImage } from "@/sanity/lib/image"
 import { Separator } from "@/components/ui/separator"
+import Head from "next/head"
 
 
 
@@ -124,6 +125,9 @@ export async function teachers() {
         <div
         className="max-w-7xl mx-auto"
         >
+            <Head>
+                <title>Teachers | JHS</title>
+            </Head>
             <h1
                 className="text-4xl font-bold text-center p-2"
             >Teachers</h1>

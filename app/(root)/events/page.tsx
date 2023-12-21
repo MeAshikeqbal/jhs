@@ -3,6 +3,7 @@ import { Separator } from '@/components/ui/separator'
 import { client } from '@/sanity/lib/client'
 import { CalendarCheck, CalendarX, MapPin } from 'lucide-react'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
+import Head from 'next/head'
 import Image from 'next/image'
 
 
@@ -68,6 +69,9 @@ export async function Events() {
 
   return (
     <div>
+      <Head>
+        <title>Events - JHS</title>
+      </Head>
       <div className='flex flex-col items-center justify-center p-1 '>
         <h1 className='text-3xl font-bold text-center text-gray-800 md:text-4xl'>
           Events

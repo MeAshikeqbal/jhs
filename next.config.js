@@ -4,7 +4,7 @@ const nextConfig = {
 		ignoreBuildErrors: true,
 	},
     images: {
-		domains: ['cdn.sanity.io']
+		domains: ['cdn.sanity.io','jhs-six.vercel.app']
 	}
 }
 

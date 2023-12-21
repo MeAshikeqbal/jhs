@@ -64,6 +64,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, aut
                             alt={`Slide ${index}`}
                             width={1000}
                             height={500}
+                            priority={true}
                             placeholder="blur"
                             blurDataURL={slide.image.asset.metadata.lqip}
                             className=" object-cover rounded-b-3xl w-full h-full absolute top-0 left-0 sm:h-full md:h-full lg:h-full xl:h-full"

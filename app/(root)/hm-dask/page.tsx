@@ -1,5 +1,6 @@
 import { Separator } from '@/components/ui/separator'
 import { client } from '@/sanity/lib/client'
+import Head from 'next/head'
 import PortableText from 'react-portable-text'
 
 
@@ -25,6 +26,9 @@ export async function hmDask() {
 
   return (
     <article>
+      <Head>
+        <title>HM Desk - JHS</title>
+      </Head>
       <div
         className='p-3 max-w-6xl mx-auto'
       >

@@ -1,5 +1,6 @@
 import { Separator } from '@/components/ui/separator'
 import { client } from '@/sanity/lib/client'
+import Head from 'next/head'
 import PortableText from 'react-portable-text'
 
 
@@ -21,6 +22,9 @@ export async function aboutUs() {
 
   return (
     <article>
+      <Head>
+        <title> {aboutUs[0].title} - JHS</title>
+      </Head>
       <div
         className='p-3 max-w-6xl mx-auto'
       >
