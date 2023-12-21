@@ -53,8 +53,7 @@ export async function alumni() {
     }
   }`);
 
-  const sortedAlumni: Alumni[] = [...alumni].sort((a, b) => a.batch.localeCompare(b.batch)).sort((a, b) => a.name.localeCompare(b.name));
-
+  const sortedAlumni: Alumni[] = [...alumni].sort((a, b) => a.batch - b.batch).sort((a, b) => a.name.localeCompare(b.name));
   const groupedAlumni: GroupedAlumni = sortedAlumni.reduce<GroupedAlumni>((groups, alumni) => {
     const key = alumni.batch;
     if (!groups[key]) {

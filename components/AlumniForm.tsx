@@ -17,6 +17,7 @@ const client = createClient({
   token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
   useCdn: false,
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-12-14',
+  ignoreBrowserTokenWarning: true
 });
 
 type FormState = {
