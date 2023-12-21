@@ -6,6 +6,7 @@ interface CounterProps {
   targetNumber: number;
 }
 
+
 const Counter: React.FC<CounterProps> = ({ targetNumber }) => {
   const [count, setCount] = useState(0);
 

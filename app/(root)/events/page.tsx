@@ -1,4 +1,3 @@
-
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
 import { client } from '@/sanity/lib/client'
@@ -7,7 +6,7 @@ import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 
 
-type Event = {
+type event = {
   _id: string
   title: string
   description: string
@@ -90,7 +89,7 @@ export async function Events() {
           {futureEvents.length > 0 ? (
             futureEvents
               .sort((a: { date: string | number | Date }, b: { date: string | number | Date }) => new Date(a.date).getTime() - new Date(b.date).getTime())
-              .map((event: { _id: string; title: string; description: string; venue: string; date: string | number | Date; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined } } } }) => (
+              .map((event:event) => (
                 <div
                   key={event._id}
                   className='flex p-1.5'

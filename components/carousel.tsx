@@ -6,6 +6,7 @@ import { useSwipeable } from 'react-swipeable';
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 
+
 interface CarouselProps {
     slides: {
         title: string; _id: string; image: {
