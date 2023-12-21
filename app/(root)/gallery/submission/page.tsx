@@ -1,4 +1,4 @@
-import GalleryForm from '@/components/GalleryForm';
+import GalleryForm from '@/components/galleryForm';
 import { Card } from '@/components/ui/card';
 
 function Page() {

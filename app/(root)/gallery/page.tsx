@@ -4,7 +4,7 @@ import { urlForImage } from '@/sanity/lib/image'
 import { Card, CardDescription } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import GalleryForm from '@/components/GalleryForm'
+import GalleryForm from '@/components/galleryForm'
 
 type gallery = {
     _id: string,
