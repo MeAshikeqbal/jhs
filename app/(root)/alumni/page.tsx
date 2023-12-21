@@ -13,27 +13,25 @@ type Alumni = {
   batch: number;
   image: {
     asset: {
-      _id: string
-      url: string
+      _id: string;
+      url: string;
       metadata: {
-        lqip: string
-      }
-    }
-  }
-
+        lqip: string;
+      };
+    };
+  };
 };
 
 type AlumniType = {
   _id: string;
   image: {
     asset: {
-      _id: string
-      url: string
+      url: string | StaticImport;
       metadata: {
-        lqip: string
-      }
-    }
-  }
+        lqip: string | undefined;
+      };
+    };
+  };
   name: string;
 };
 
@@ -55,10 +53,9 @@ export async function alumni() {
     }
   }`);
 
-  const sortedAlumni: Alumni[] = [...alumni]
+const sortedAlumni: Alumni[] = [...alumni]
   .sort((a, b) => String(a.batch).localeCompare(String(b.batch)))
   .sort((a, b) => a.name.localeCompare(b.name));
-
   const groupedAlumni: GroupedAlumni = sortedAlumni.reduce<GroupedAlumni>((groups, alumni) => {
     const key = alumni.batch;
     if (!groups[key]) {

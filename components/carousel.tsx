@@ -61,9 +61,10 @@ const Carousel: React.FC<CarouselProps> = ({ slides = [], autoSlide = false, aut
                         className={`relative w-full h-full flex-shrink-0 transition-opacity duration-500 ${curr === index ? 'opacity-100 visible' : 'opacity-0 invisible'}`}                    >
                         <Image
                             src={slide.image.asset.url}
-                            alt={`Slide ${index}`}
-                            width={1000}
-                            height={500}
+                            alt={slide.title}
+                            width={200}
+                            height={200}
+                            quality={100}
                             placeholder="blur"
                             blurDataURL={slide.image.asset.metadata.lqip}
                             className=" object-cover rounded-b-3xl w-full h-full absolute top-0 left-0 sm:h-full md:h-full lg:h-full xl:h-full"

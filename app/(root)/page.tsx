@@ -85,8 +85,8 @@ export async function home() {
                 src="/img/wbbse.png"
                 alt="wbbse"
                 className="w-40"
-                width={200}
-                height={200}
+                width={100}
+                height={100}
               />
               <h4
                 className="flex text-2xl font-bold text-blue-950"
@@ -100,8 +100,8 @@ export async function home() {
               <Image
                 src="/img/wbchse.webp"
                 alt="wbchse"
-                width={200}
-                height={200}
+                width={100}
+                height={100}
                 className="w-40"
               />
               <h4
