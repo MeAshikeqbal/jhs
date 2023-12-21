@@ -22,9 +22,9 @@ export function TopBar () {
           </Link>
         </div>
         <div className='md:flex items-center'>
-          <Link href="mailto:contact@jalalpurhighschool.com" className='flex justify-center'>
+          <Link href="mailto:jalalpurhighschool1@gmail.com" className='flex justify-center'>
             <Mail size={24} className='mr-2' />
-            contact@jalalpurhighschool.com
+            jalalpurhighschool1@gmail.com
           </Link>
           <Separator orientation="vertical" className='h-5 hidden md:flex items-center justify-between m-2' />
           <Link href="tel:01712345678" className='flex justify-center'>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { client } from "@/sanity/lib/client"
+import { createClient } from '@sanity/client';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,14 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useRouter } from 'next/navigation';
 
 
+const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: 'production',
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
+  useCdn: false,
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-12-14',
+  ignoreBrowserTokenWarning: true
+});
 
 type FormState = {
   image: File | null;
@@ -32,8 +40,6 @@ function AlumniForm() {
       [event.target.name]: event.target.value,
     });
   };
-
-  console.log(client);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
