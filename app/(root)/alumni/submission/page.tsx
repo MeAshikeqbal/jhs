@@ -1,4 +1,4 @@
-import AlumniForm from '@/components/alumniForm';
+import AlumniForm from '@/components/alumniform';
 import { Card } from '@/components/ui/card';
 
 function Page() {

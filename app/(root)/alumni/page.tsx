@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import AlumniForm from '@/components/alumniForm';
+import AlumniForm from '@/components/alumniform';
 
 
 type Alumni = {
