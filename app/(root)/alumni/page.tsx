@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { client } from "@/sanity/lib/client"
 import { Separator } from "@/components/ui/separator";
@@ -23,10 +22,20 @@ type Alumni = {
   };
 };
 
-type GroupedAlumni = {
-  [key: number]: Alumni[];
+type AlumniType = {
+  _id: string;
+  image: {
+    asset: {
+      url: string | StaticImport;
+      metadata: {
+        lqip: string | undefined;
+      };
+    };
+  };
+  name: string;
 };
 
+type GroupedAlumni = Record<string, Alumni[]>;
 
 export async function alumni() {
   const alumni = await client.fetch(`*[_type == "alumni"]{
@@ -44,9 +53,9 @@ export async function alumni() {
     }
   }`);
 
-  const sortedAlumni = [...alumni].sort((a, b) => a.batch - b.batch).sort((a, b) => a.name.localeCompare(b.name));;
+  const sortedAlumni: Alumni[] = [...alumni].sort((a, b) => a.batch.localeCompare(b.batch)).sort((a, b) => a.name.localeCompare(b.name));
 
-  const groupedAlumni = sortedAlumni.reduce<Record<string, typeof sortedAlumni>>((groups, alumni) => {
+  const groupedAlumni: GroupedAlumni = sortedAlumni.reduce<GroupedAlumni>((groups, alumni) => {
     const key = alumni.batch;
     if (!groups[key]) {
       groups[key] = [];
@@ -54,7 +63,7 @@ export async function alumni() {
     groups[key].push(alumni);
     return groups;
   }, {});
-  return (
+    return (
     <div
       className="max-w-7xl mx-auto"
     >
@@ -69,7 +78,7 @@ export async function alumni() {
             <Separator className="h-1 mt-1 bg-gray-800 rounded-full mb-2 max-w-full" />
           </h1>
           <div className="flex flex-wrap justify-center">
-            {alumniGroup?.map((alumni: { _id: string ; image: { asset: { url: string | StaticImport; metadata: { lqip: string | undefined; }; }; }; name: string ; }) => (
+            {alumniGroup?.map((alumni: AlumniType ) => (
               <div key={alumni._id} className="p-2">
                 <Card className="flex flex-col items-center w-64 h-72 pt-3">
                   <CardContent>
@@ -98,43 +107,43 @@ export async function alumni() {
         <h1
           className="flex flex-col items-center justify-center text-3xl font-bold text-gray-800 md:text-4xl p-4"
         >
-          Don't see your name?
+          Don&apos;t see your name?
           <Separator className="h-1 mt-1 bg-gray-800 rounded-full mb-2 max-w-full" />
         </h1>
         <div
-        className="flex flex-col items-center justify-center"
+          className="flex flex-col items-center justify-center"
         >
 
-        <Dialog>
-          <DialogTrigger>
-            <div
-            className="p-2"
-            >
-
-              <Card
-                className="flex flex-col items-center w-64 h-72 pt-3"
+          <Dialog>
+            <DialogTrigger>
+              <div
+                className="p-2"
               >
-                <CardContent>
-                  <Image
-                    src="/img/add.svg"
-                    alt="Add"
-                    width={500}
-                    height={500}
-                    className="rounded-full h-52 w-52"
-                  />
-                </CardContent>
-                <CardTitle className="text-xl font-bold text-center text-gray-800 md:text-2xl">
-                  Add Alumni
-                </CardTitle>
-              </Card>
-            </div>
-          </DialogTrigger>
-          <DialogContent
-            className="bg-white w-full p-5 rounded-md shadow-md"
-          >
-            <AlumniForm />
-          </DialogContent>
-        </Dialog>
+
+                <Card
+                  className="flex flex-col items-center w-64 h-72 pt-3"
+                >
+                  <CardContent>
+                    <Image
+                      src="/img/add.svg"
+                      alt="Add"
+                      width={500}
+                      height={500}
+                      className="rounded-full h-52 w-52"
+                    />
+                  </CardContent>
+                  <CardTitle className="text-xl font-bold text-center text-gray-800 md:text-2xl">
+                    Add Alumni
+                  </CardTitle>
+                </Card>
+              </div>
+            </DialogTrigger>
+            <DialogContent
+              className="bg-white w-full p-5 rounded-md shadow-md"
+            >
+              <AlumniForm />
+            </DialogContent>
+          </Dialog>
         </div>
 
       </div>
