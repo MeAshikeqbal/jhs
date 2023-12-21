@@ -9,6 +9,8 @@ import Counter from "@/components/counter"
 import FacebookPage from "@/components/facebook"
 import Image from "next/image"
 
+const revalidate = 60;
+
 
 export async function home() {
 
@@ -62,7 +64,7 @@ export async function home() {
               className="flex justify-center items-center p-3"
             >
               <Button className="bg-blue-950 text-white">
-                Learn More
+                Learn More About Us
               </Button>
             </Link>
           </div>

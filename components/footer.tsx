@@ -13,10 +13,10 @@ export function Footer () {
                     <div className='flex flex-col md:flex-row justify-around'>
                         <div className="flex flex-col p-6 text-gray-400">
                             <Image
-                                src='/img/logo.svg'
+                                src='/img/logo.png'
                                 alt='logo'
-                                width={50}
-                                height={50}
+                                width={65}
+                                height={65}
                             />
                             <p className="text-sm font-medium">Jalalpur High School (H.S.)</p>
                             <p className="text-sm font-medium">Jalalpur, Malda, West Bengal 732125</p>
