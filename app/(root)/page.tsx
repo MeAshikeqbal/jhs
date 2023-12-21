@@ -78,10 +78,10 @@ export async function home() {
             Affiliation
           </h1>
           <div
-            className="my-4 flex flex-col md:flex-row md:justify-evenly justify-center items-center p-4 space-y-2 md:space-y-0 md:space-x-4 text-center text-gray-600 max-w-7xl mx-auto"
+            className="my-4 flex justify-between items-center max-w-7xl mx-auto p-4 space-y-2 md:space-y-0 md:space-x-4 text-center text-gray-600"
           >
             <div
-              className="flex flex-col justify-center items-center space-y-2"
+              className="flex flex-col  items-center space-y-2"
             >
               <Image
                 src="/img/wbbse.png"
@@ -97,7 +97,7 @@ export async function home() {
               </h4>
             </div>
             <div
-              className="flex flex-col justify-center items-center space-y-2"
+              className="flex flex-col items-center space-y-2"
             >
               <Image
                 src="/img/wbchse.webp"
@@ -114,7 +114,7 @@ export async function home() {
             </div>
           </div>
         </div>
-        <div className="flex p-2 flex-col md:flex-row md: justify-center max-w-6xl mx-auto space-y-2.5 md:space-y-0 md:space-x-4">
+        <div className="flex p-2 justify-evenly flex-col md:flex-row max-w-6xl mx-auto space-y-2.5 md:space-y-0 md:space-x-4">
           <Card className="flex flex-col justify-center items-center w-full md:w-1/3 p-4 space-y-2 hover:bg-blue-950/30 transition ease-in-out">
             <CardHeader className="text-2xl font-bold text-center text-blue-950">
               Middle School

@@ -28,22 +28,22 @@ export function Footer () {
                                 </h3>
                                 <Separator className='w-20 bg-gray-400 mx-4' />
                                 <ul>
-                                    <li className='text-gray-400 font-semibold'>
+                                    <li className='text-gray-400 font-semibold hover:text-white'>
                                         <Link href='/notice'>Notice</Link>
                                     </li>
-                                    <li className='text-gray-400 font-semibold'>
+                                    <li className='text-gray-400 font-semibold hover:text-white'>
                                         <Link href='/alumni'>Alumni</Link>
                                     </li>
-                                    <li className='text-gray-400 font-semibold'>
+                                    <li className='text-gray-400 font-semibold hover:text-white'>
                                         <Link href='/gallery'>Gallery</Link>
                                     </li>
-                                    <li className='text-gray-400 font-semibold'>
+                                    <li className='text-gray-400 font-semibold hover:text-white'>
                                         <Link href='/contact-us'>Contact Us</Link>
                                     </li>
-                                    <li className='text-gray-400 font-semibold'>
+                                    <li className='text-gray-400 font-semibold hover:text-white'>
                                         <Link href='/academic-calendar'>Academic Calendar</Link>
                                     </li>
-                                    <li className='text-gray-400 font-semibold'>
+                                    <li className='text-gray-400 font-semibold hover:text-white'>
                                         <Link href='/events'>Events</Link>
                                     </li>
                                 </ul>
@@ -55,28 +55,28 @@ export function Footer () {
                                 </h3>
                                 <Separator className='w-28 bg-gray-400 mx-4' />
                                 <div
-                                className='flex flex-col'
+                                className='flex flex-col hover:text-white'
                                 >
 
 
-                                <Link href='/alumni/submission' className='text-gray-400 font-semibold'>
+                                <Link href='/alumni/submission' className='text-gray-400 font-semibold hover:text-white'>
                                     Alumni Submission
                                 </Link>
                                 <Link
                                 href='/gallery/submission'
-                                className='text-gray-400 font-semibold'
+                                className='text-gray-400 font-semibold hover:text-white'
                                 >
                                 Gallery Submission
                                 </Link>
                                     </div>
                             </div>
-                            <Separator className='hidden md:block w-0.5 h-full bg-gray-400 mx-4' />
+                            <Separator className='hidden md:block w-0.5 h-full bg-gray-400 mx-4 hover:text-white' />
                             <div>
                                 <h3 className='text-gray-400 text-lg font-bold'>
                                     Admin Corner
                                 </h3>
                                 <Separator className='w-24 bg-gray-400 mx-4' />
-                                <Link href='/dashbord' className='text-gray-400 font-semibold'>
+                                <Link href='/dashbord' className='text-gray-400 font-semibold hover:text-white'>
                                     Admin Dashbord
                                 </Link>
                             </div>
@@ -86,7 +86,9 @@ export function Footer () {
                 <div className="flex flex-col items-center justify-center py-6 text-gray-400">
                     <p className="text-sm font-medium">© {year} Jalalpur High School (H.S.)</p>
                     <p className="text-sm font-medium">All rights reserved.</p>
-                    <p className="text-sm font-medium">Designed & Devloved by <a href="https:itsashik.info">Ashik Eqbal</a></p>
+                    <p className="text-sm font-medium">Designed & Devloved by <Link href="https//:itsashik.info"
+                    className=' text-stone-200 hover:text-blue-200'
+                    >Ashik Eqbal</Link></p>
                 </div>
             </div>
 
