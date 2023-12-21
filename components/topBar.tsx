@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Separator } from "@/components/ui/separator"
 
-const TopBar = () => {
+export function TopBar () {
   return (
     <div>
       <div className='grid items-center p-2 md:flex justify-around'>
@@ -40,5 +40,3 @@ const TopBar = () => {
     </div>
   )
 }
-
-export default TopBar;

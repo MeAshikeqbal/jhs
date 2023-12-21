@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Separator } from './ui/separator'
 
 
-const footer = () => {
+export function footer () {
     const year = new Date().getFullYear()
     return (
         <div>
@@ -92,5 +92,3 @@ const footer = () => {
         </div>
     )
 }
-
-export default footer
