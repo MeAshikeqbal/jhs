@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   description: 'Jalalpur High School (H.S.) is one of the significant academic institutions of Malda District, West Bengal Since 1973, it is looking forward to the advancement of learning with an unmatched calibre. ',
   openGraph: {
-    images: [`https://${process.env.VERCEL_URL}/api/og`],
+    images: [`https://${process.env.VERCEL_URL}/api/og?title=%s&path=%s`],
   },
 }
 
