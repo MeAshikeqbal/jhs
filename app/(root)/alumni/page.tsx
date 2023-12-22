@@ -97,14 +97,14 @@ export async function alumni() {
           <div className="flex flex-wrap justify-center">
             {alumniGroup?.map((alumni: AlumniType ) => (
               <div key={alumni._id} className="p-2">
-                <Card className="flex flex-col items-center w-64 h-full pt-3">
+                <Card className="flex flex-col items-center min-h-96 w-64 h-full pt-3 hover:drop-shadow-xl">
                   <CardContent>
                     <Image
                       src={alumni.image.asset.url}
                       alt={alumni.name?.toString() ?? ''}
                       width={500}
                       height={500}
-                      className="rounded-full h-52 w-52 object-contain object-center"
+                      className="rounded-full h-52 w-52 object-cover"
                       placeholder="blur"
                       blurDataURL={alumni.image.asset.metadata.lqip}
                     />

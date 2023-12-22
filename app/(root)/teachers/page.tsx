@@ -132,6 +132,9 @@ export async function teachers() {
         designation,
     }`)
 
+const sortedAt = [...at].sort((a, b) => a.name.localeCompare(b.name));
+const sortedPt = [...pt].sort((a, b) => a.name.localeCompare(b.name));
+
 
     return (
         <div
@@ -157,7 +160,7 @@ export async function teachers() {
                                 alt={hm[0]?.name}
                                 width={200}
                                 height={200}
-                                className="rounded-full w-52 h-52"
+                                className="rounded-full w-52 h-52 object-cover"
                                 placeholder="blur"
                                 blurDataURL={hm[0]?.image?.asset?.metadata?.lqip}
                                 loading="lazy"
@@ -188,7 +191,7 @@ export async function teachers() {
                                 alt={ahm[0]?.name.toUpperCase()}
                                 width={200}
                                 height={200}
-                                className="rounded-full w-52 h-52"
+                                className="rounded-full w-52 h-52 object-cover"
                                 placeholder="blur"
                                 blurDataURL={ahm[0]?.image?.asset?.metadata?.lqip}
                                 loading="lazy"
@@ -212,7 +215,7 @@ export async function teachers() {
                     />
                 </h2>
                 <div className="flex items-center justify-center md:flex flex-wrap">
-                    {at.map((at: at) => (
+                {[...at].sort((a, b) => a.name.localeCompare(b.name)).map((at) => (
                         <div key={at._id}
                             className="p-2 flex flex-row "
                         >
@@ -224,7 +227,7 @@ export async function teachers() {
                                             alt={at.name}
                                             width={200}
                                             height={200}
-                                            className="rounded-full w-52 h-52"
+                                            className="rounded-full w-52 h-52 object-cover"
                                             placeholder="blur"
                                             blurDataURL={at.image?.asset?.metadata?.lqip}
                                             loading="lazy"
@@ -253,7 +256,7 @@ export async function teachers() {
                     />
                 </h2>
                 <div className="flex items-center justify-center md:flex flex-wrap">
-                    {pt.map((pt: pt) => (
+                {[...pt].sort((a, b) => a.name.localeCompare(b.name)).map((pt) => (
                         <div key={pt._id}
                             className="p-2 flex flex-row "
                         >

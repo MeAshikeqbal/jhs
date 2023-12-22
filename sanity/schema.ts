@@ -150,42 +150,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
       ],
     },
     {
-      title: "Gallery",
-      name: "gallery",
-      type: "document",
-      fields: [
-        {
-          title: "Title",
-          name: "title",
-          type: "string",
-          placeholder: "Title",
-        },
-        {
-          title: "Description",
-          name: "description",
-          type: "text",
-          placeholder: "Information about the poster",
-        },
-        {
-          title: "Image",
-          name: "image",
-          type: "image",
-          options:{
-            hotspot: true,
-          },
-        },
-        {
-          title: "Date",
-          name: "date",
-          type: "date",
-          options: {
-            dateFormat: "DD-MM-YYYY",
-            calendarTodayLabel: "Today",
-          },
-        },
-      ],
-    },
-    {
       title: "HM Dask",
       name: "hmdesk",
       type: "document",
@@ -200,6 +164,27 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           name: "designation",
           type: "string",
         },
+        {
+          title: "Title",
+          name: "title",
+          type: "string",
+        },
+        {
+          title: "Content",
+          name: "content",
+          type: "array",
+          of: [
+            {
+              type: "block",
+            },
+          ],
+        },
+      ],
+    },    {
+      title: "About Us",
+      name: "aboutus",
+      type: "document",
+      fields: [
         {
           title: "Title",
           name: "title",
@@ -246,27 +231,40 @@ export const schema: { types: SchemaTypeDefinition[] } = {
       ],
     },
     {
-      title: "About Us",
-      name: "aboutus",
+      title: "Gallery",
+      name: "gallery",
       type: "document",
       fields: [
         {
           title: "Title",
           name: "title",
           type: "string",
+          placeholder: "Title",
         },
         {
-          title: "Content",
-          name: "content",
-          type: "array",
-          of: [
-            {
-              type: "block",
-            },
-          ],
+          title: "Description",
+          name: "description",
+          type: "text",
+          placeholder: "Information about the poster",
+        },
+        {
+          title: "Image",
+          name: "image",
+          type: "image",
+          options:{
+            hotspot: true,
+          },
+        },
+        {
+          title: "Date",
+          name: "date",
+          type: "date",
+          options: {
+            dateFormat: "DD-MM-YYYY",
+            calendarTodayLabel: "Today",
+          },
         },
       ],
     },
-
   ],
 };
