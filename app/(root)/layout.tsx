@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    images: [`https://${process.env.VERCEL_URL}/api/og?title=Jalalpur%20High%20School%20(H.S.)&width=640&height=320`],
+    images: [`https://jhs-six.vercel.app/api/og?title=Jalalpur%20High%20School%20(H.S.)&width=640&height=320`],
   },
   twitter:{
     card: 'summary_large_image',

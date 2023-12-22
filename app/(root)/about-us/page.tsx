@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'About Us',
   openGraph: {
     url: 'https://jalalpurhighschool.com/about-us',
-    images: [`https://${process.env.VERCEL_URL}/api/og?title=About%20Us&width=640&height=320`],
+    images: [`https://jhs-six.vercel.app/api/og?title=About%20Us&width=640&height=320`],
   },
   twitter:{
     card: 'summary_large_image',
