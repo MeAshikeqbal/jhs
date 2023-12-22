@@ -9,7 +9,7 @@ import Counter from "@/components/counter"
 import FacebookPage from "@/components/facebook"
 import Image from "next/image"
 
-const revalidate = 60;
+export const revalidate = 60;
 
 
 export async function home() {
