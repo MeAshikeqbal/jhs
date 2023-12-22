@@ -86,9 +86,9 @@ export function Footer () {
                 <div className="flex flex-col items-center justify-center py-6 text-gray-400">
                     <p className="text-sm font-medium">© {year} Jalalpur High School (H.S.)</p>
                     <p className="text-sm font-medium">All rights reserved.</p>
-                    <p className="text-sm font-medium">Designed & Devloved by <Link href="https//:itsashik.info"
+                    <p className="text-sm font-medium">Designed & Devloved by <a href="https//:itsashik.info"
                     className=' text-stone-200 hover:text-blue-200'
-                    >Ashik Eqbal</Link></p>
+                    >Ashik Eqbal</a></p>
                 </div>
             </div>
 
