@@ -30,7 +30,7 @@ const ContactUs = () => {
                 <div className='m-4'>
                     <div>
                         <div
-                        className=' grid  p-2'
+                            className=' grid  p-2'
                         >
                             <div className='flex flex-col'>
                                 <p className='flex'>
@@ -42,25 +42,25 @@ const ContactUs = () => {
                             </div>
                             <div className='flex'>
                                 <PhoneCallIcon size={24} className='mr-2' />
-                                <Link href="tel:01712345678" className='flex justify-center'>
-                                    01712345678
+                                <Link href="tel:+917001884657" className='flex justify-center'>
+                                +91 70018 84657
                                 </Link>
                             </div>
                             <div className='flex'>
                                 <Mail size={24} className='mr-2' />
-                                <Link href="mailto:contact@jalalpurhighschool.com" className='flex justify-center'>
-                                    contact@jalalpurhighschool.com
+                                <Link href="mailto:dask@jalalpurhighschool.com" className='flex justify-center'>
+                                    dask@jalalpurhighschool.com
                                 </Link>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div>
                 <div
-                    className='m-4'
+                    className='m-4 flex justify-center items-center'
                 >
-                    <iframe
-                        className=' w-full h-96 '
-                        src="https://www.google.com/maps/embed/v1/place?q=Jalalpur+High+School,+Kaliachak,+West+Bengal,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1279.5580960222158!2d88.06972851870141!3d24.89331404987082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39faf903d6503895%3A0x5c4e000230a4256!2sJalalpur%20High%20School!5e0!3m2!1sen!2sin!4v1703210793111!5m2!1sen!2sin" width="500" height="400" loading="lazy"></iframe>
+                </div>
                 </div>
             </div>
         </div>

@@ -86,7 +86,7 @@ export function Footer () {
                 <div className="flex flex-col items-center justify-center py-6 text-gray-400">
                     <p className="text-sm font-medium">© {year} Jalalpur High School (H.S.)</p>
                     <p className="text-sm font-medium">All rights reserved.</p>
-                    <p className="text-sm font-medium">Designed & Devloved by 
+                    <p className="text-sm font-medium">Designed & Devloved by&nbsp;
                     <a href="https://itsashik.info"
                     target='_blank'
                     rel='noopener noreferrer'
