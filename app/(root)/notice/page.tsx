@@ -9,6 +9,7 @@ import { JSX, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Promi
 export const metadata = {
   title: 'Notice',
   openGraph: {
+    url: 'https://jalalpurhighschool.com/notice',
     images: [`https://${process.env.VERCEL_URL}/api/og?title=Notice&width=640&height=320`],
   },
   twitter: {

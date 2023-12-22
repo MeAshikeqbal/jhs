@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 export const metadata = {
   title: 'Alumni Submission',
   openGraph: {
+    url: 'https://jalalpurhighschool.com/alumni/submission',
     images: [`https://${process.env.VERCEL_URL}/api/og?title=Alumni%20Submission&width=640&height=320`],
   },
   twitter: {

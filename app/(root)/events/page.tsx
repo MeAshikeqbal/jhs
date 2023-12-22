@@ -8,6 +8,7 @@ import Image from 'next/image'
 export const metadata = {
   title: 'Events',
   openGraph: {
+    url: 'https://jalalpurhighschool.com/events',
     images: [`https://${process.env.VERCEL_URL}/api/og?title=Events&width=640&height=320`],
   },
   twitter: {

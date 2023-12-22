@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata = {
     title: 'Contact Us',
     openGraph: {
+        url: 'https://jalalpurhighschool.com/contact-us',
         images: [`https://${process.env.VERCEL_URL}/api/og?title=Contact%20Us&width=640&height=320`],
     },
     twitter: {

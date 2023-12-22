@@ -9,6 +9,7 @@ import { Metadata } from "next";
 export const metadata:Metadata = {
   title: 'Alumni',
   openGraph: {
+    url: 'https://jalalpurhighschool.com/alumni',
     images: [`https://${process.env.VERCEL_URL}/api/og?title=Alumni&width=640&height=320`],
   },
   twitter:{

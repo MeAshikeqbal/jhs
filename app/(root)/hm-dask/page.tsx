@@ -5,6 +5,7 @@ import PortableText from 'react-portable-text'
 export const metadata = {
   title: 'HM Desk',
   openGraph: {
+    url: 'https://jalalpurhighschool.com/hm-desk',
     images: [`https://${process.env.VERCEL_URL}/api/og?title=HM%20Desk&width=640&height=320`],
   },
   twitter:{

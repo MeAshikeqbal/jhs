@@ -9,6 +9,7 @@ import GalleryForm from '@/components/galleryform'
 export const metadata = {
     title: 'Gallery',
     openGraph: {
+        url: 'https://jalalpurhighschool.com/gallery',
         images: [`https://${process.env.VERCEL_URL}/api/og?title=Gallery&width=640&height=320`],
     },
     twitter: {

@@ -4,6 +4,7 @@ import React from 'react'
 export const metadata = {
   title: 'Academic Calendar',
   openGraph: {
+    url: 'https://jalalpurhighschool.com/academic-calendar',
     images: [`https://${process.env.VERCEL_URL}/api/og?title=Academic%20Calendar&width=640&height=320`],
   },
   twitter:{
