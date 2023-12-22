@@ -19,7 +19,7 @@ export function Footer () {
                                 height={65}
                             />
                             <p className="text-sm font-medium">Jalalpur High School (H.S.)</p>
-                            <p className="text-sm font-medium">Jalalpur, Malda, West Bengal 732125</p>
+                            <p className="text-sm font-medium">Jalalpur, Malda, West Bengal 732206</p>
                         </div>
                         <div className='flex flex-col md:flex-row justify-evenly p-4 md:mt-4'>
                             <div>

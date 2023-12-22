@@ -110,7 +110,7 @@ export async function Gallery() {
                     <h1
                         className='text-3xl flex flex-col justify-center items-center font-bold text-center text-gray-800 md:text-4xl'
                     >
-                        Add your memorys form here
+                        Add your memories form here
                         <Separator
                             className='w-4/5 h-1 mt-1 bg-gray-800 rounded-full'
                         />
