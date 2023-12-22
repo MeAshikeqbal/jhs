@@ -69,46 +69,20 @@ export async function home() {
             </Link>
           </div>
         </div>
-        <div
-          className="bg-blue-950/30 my-2 py-4 w-full flex flex-col  justify-center items-center max-w-none"
-        >
-          <h1
-            className="text-4xl font-bold text-center text-blue-950"
-          >
+        <div className="bg-blue-950/30 my-2 py-4 w-full flex flex-col justify-center items-center max-w-none">
+          <h1 className="text-4xl font-bold text-center text-blue-950">
             Affiliation
           </h1>
-          <div
-            className="my-4 flex justify-between items-center max-w-7xl mx-auto p-4 space-y-2 md:space-y-0 md:space-x-4 text-center text-gray-600"
-          >
-            <div
-              className="flex flex-col  items-center space-y-2"
-            >
-              <Image
-                src="/img/wbbse.png"
-                alt="wbbse"
-                className="w-40"
-                width={200}
-                height={200}
-              />
-              <h4
-                className="flex text-2xl font-bold text-blue-950"
-              >
+          <div className="my-4 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto p-4 space-y-2 md:space-y-0 md:space-x-4 text-center text-gray-600">
+            <div className="flex flex-col items-center space-y-2">
+              <Image src="/img/wbbse.png" alt="wbbse" className="w-40" width={200} height={200} />
+              <h4 className="flex text-2xl font-bold text-blue-950">
                 WBBSE
               </h4>
             </div>
-            <div
-              className="flex flex-col items-center space-y-2"
-            >
-              <Image
-                src="/img/wbchse.webp"
-                alt="wbchse"
-                width={200}
-                height={200}
-                className="w-40"
-              />
-              <h4
-                className="flex text-2xl font-bold text-blue-950"
-              >
+            <div className="flex flex-col items-center space-y-2">
+              <Image src="/img/wbchse.webp" alt="wbchse" width={200} height={200} className="w-40" />
+              <h4 className="flex text-2xl font-bold text-blue-950">
                 WBCHSE
               </h4>
             </div>
