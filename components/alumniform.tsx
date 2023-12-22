@@ -81,7 +81,7 @@ function AlumniForm() {
           .patch(existingDocument._id)
           .set({
             name: formState.name,
-            batch: formState.batch,
+            batch: Number(formState.batch), // convert batch to a number
             image: {
               _type: 'image',
               asset: {
@@ -97,7 +97,7 @@ function AlumniForm() {
           .create({
             _type: 'alumni',
             name: formState.name,
-            batch: formState.batch,
+            batch: Number(formState.batch), // convert batch to a number
             email: formState.email,
             image: {
               _type: 'image',
