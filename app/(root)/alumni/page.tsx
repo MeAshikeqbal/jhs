@@ -109,7 +109,7 @@ export async function alumni() {
                       blurDataURL={alumni.image.asset.metadata.lqip}
                     />
                   </CardContent>
-                  <CardTitle className="text-xl font-bold text-center text-gray-800 md:text-2xl">
+                  <CardTitle className="text-xl font-bold text-center text-gray-800 md:text-2xl p-2">
                     {alumni.name}
                   </CardTitle>
                 </Card>
