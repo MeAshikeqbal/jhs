@@ -23,6 +23,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Image",
           name: "image",
           type: "image",
+          options:{
+            hotspot: true,
+          },
         },
         {
           title: "Date",
@@ -61,6 +64,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Image",
           name: "image",
           type: "image",
+          options:{
+            hotspot: true,
+          },
         },
         {
           title: "Date of Event",
@@ -88,6 +94,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Image",
           name: "image",
           type: "image",
+          options:{
+            hotspot: true,
+          },
         },
       ],
     },
@@ -106,6 +115,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Image",
           name: "image",
           type: "image",
+          options:{
+            hotspot: true,
+          },
         },
         {
           title: "Qalification",
@@ -158,6 +170,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Image",
           name: "image",
           type: "image",
+          options:{
+            hotspot: true,
+          },
         },
         {
           title: "Date",
@@ -211,6 +226,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           title: "Image",
           name: "image",
           type: "image",
+          options:{
+            hotspot: true,
+          },
         },
         {
           title: "Name",
