@@ -82,7 +82,7 @@ export async function Gallery() {
                                 quality={80}
                                 placeholder='blur'
                                 blurDataURL={g.image.asset.metadata.lqip}
-                                className='rounded-t-sm object-cover w-full h-52'
+                                className='rounded-t-sm  w-full '
                                 loading='lazy'
                             />
                             <div>
