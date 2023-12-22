@@ -1,5 +1,4 @@
-![](https://api.checklyhq.com/v1/badges/checks/cb01462f-0d62-4e45-8049-e9bae3ab460e?style=flat&theme=default&responseTime=true)
-
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=jhs)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
