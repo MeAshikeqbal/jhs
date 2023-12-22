@@ -87,7 +87,7 @@ function GalleryForm() {
 
 
             toast.success('Image added successfully!');
-            window.location.href = '/gallery';
+            window.location.href = '/gallery/submission/success';
         } catch (error) {
             toast.error('Something went wrong!');
         } finally {

@@ -84,7 +84,7 @@ function AlumniForm() {
 
 
       toast.success('Alumni added successfully!');
-      window.location.href = '/alumni?nocache=' + new Date().getTime();
+      window.location.href = '/alumni/submission/success';
     } catch (error) {
       toast.error('Something went wrong!');
     } finally {
