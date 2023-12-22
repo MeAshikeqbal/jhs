@@ -180,7 +180,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           ],
         },
       ],
-    },    {
+    },    
+    {
       title: "About Us",
       name: "aboutus",
       type: "document",
