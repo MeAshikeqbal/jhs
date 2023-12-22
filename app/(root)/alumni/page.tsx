@@ -124,7 +124,7 @@ export async function alumni() {
         <h1
           className="flex flex-col items-center justify-center text-3xl font-bold text-gray-800 md:text-4xl p-4"
         >
-          Don&apos;t see your name?
+          Don&apos;t see your name? or need to update your info?
           <Separator className="h-1 mt-1 bg-gray-800 rounded-full mb-2 max-w-full" />
         </h1>
         <div
@@ -150,7 +150,7 @@ export async function alumni() {
                     />
                   </CardContent>
                   <CardTitle className="text-xl font-bold text-center text-gray-800 md:text-2xl">
-                    Add Alumni
+                    Add or Update
                   </CardTitle>
                 </Card>
               </div>

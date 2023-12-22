@@ -19,20 +19,15 @@ const client = createClient({
   ignoreBrowserTokenWarning: true
 });
 
-type FormState = {
-  image: File | null;
-  name: string;
-  batch: string;
-};
-
 function AlumniForm() {
 
   const router = useRouter();
 
-  const [formState, setFormState] = useState<{ image: File | null, name: string, batch: string }>({
+  const [formState, setFormState] = useState<{ image: File | null, name: string, batch: string, email: string }>({
     image: null,
     name: '',
     batch: '',
+    email: '',
   });
   const handleChange = (event: { target: { name: any; value: any; }; }) => {
     setFormState({
@@ -67,6 +62,7 @@ function AlumniForm() {
 
     try {
       const imageAsset = await client.assets.upload('image', image);
+      const existingDocument = await client.fetch('*[_type == "alumni" && email == $email][0]', {email: formState.email});
 
       const alumni = {
         _type: 'alumni',
@@ -80,23 +76,50 @@ function AlumniForm() {
         batch: Number(batch),
       };
 
-      const response = await client.create(alumni);
+      if (existingDocument) {
+        await client
+          .patch(existingDocument._id)
+          .set({
+            name: formState.name,
+            batch: formState.batch,
+            image: {
+              _type: 'image',
+              asset: {
+                _ref: imageAsset._id,
+              },
+            },
+          })
+          .commit();
 
-
-      toast.success('Alumni added successfully!');
-      window.location.href = '/alumni/submission/success';
+          toast.success('Updated successfully!');
+      } else {
+        await client
+          .create({
+            _type: 'alumni',
+            name: formState.name,
+            batch: formState.batch,
+            email: formState.email,
+            image: {
+              _type: 'image',
+              asset: {
+                _ref: imageAsset._id,
+              },
+            },
+          });
+          toast.success('Submitted successfully!');
+      }
     } catch (error) {
+      console.error('Error:', error);
       toast.error('Something went wrong!');
     } finally {
-
       setLoading(false);
       setFormState({
         image: null,
         name: '',
         batch: '',
-      });
-
-
+        email: '',
+      })
+      router.push('/alumni/submission/success');
     }
   };
 
@@ -107,7 +130,7 @@ function AlumniForm() {
       <div
         className='flex flex-col items-center justify-center w-96 p-4 space-y-4'
       >
-        <h1 className='text-2xl font-bold'>Alumni Form</h1>
+        <h1 className='text-2xl font-bold'>Alumni submit & Update Form</h1>
         <form
           className='flex flex-col space-y-2 w-full'
           onSubmit={handleSubmit}>
@@ -117,6 +140,8 @@ function AlumniForm() {
           <Input required type="text" placeholder="Your Name" name="name" id="name" value={formState.name} onChange={handleChange} />
           <Label htmlFor="batch">Year of passing Highschool</Label>
           <Input required type="number" placeholder="2021" name="batch" id="batch" value={formState.batch} onChange={handleChange} />
+          <Label htmlFor="email">Email</Label>
+          <Input required type="email" placeholder="Your Email" name="email" id="email" value={formState.email} onChange={handleChange} />
           <div
             className='flex items-center space-x-2'
           >

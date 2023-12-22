@@ -229,6 +229,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           validation: (Rule) => Rule.required().min(1900).max(2099),
           placeholder: "2021",
         },
+        {
+          title:"Email",
+          name:"email",
+          type:"string",
+          validation: (Rule) => Rule.required().email(),
+        }
       ],
     },
     {
@@ -265,6 +271,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
             calendarTodayLabel: "Today",
           },
         },
+        {
+          title:"Email",
+          name:"email",
+          type:"string",
+          validation: (Rule) => Rule.required().email(),
+        }
       ],
     },
   ],
