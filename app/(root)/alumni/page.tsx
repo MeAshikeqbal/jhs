@@ -104,7 +104,7 @@ export async function alumni() {
                       alt={alumni.name?.toString() ?? ''}
                       width={500}
                       height={500}
-                      className="rounded-full h-52 w-52"
+                      className="rounded-full h-52 w-52 object-contain object-center"
                       placeholder="blur"
                       blurDataURL={alumni.image.asset.metadata.lqip}
                     />
