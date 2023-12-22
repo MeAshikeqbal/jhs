@@ -5,7 +5,18 @@ import { Card, CardDescription } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import GalleryForm from '@/components/galleryform'
-import Head from 'next/head'
+
+export const metadata = {
+    title: 'Gallery',
+    openGraph: {
+        images: [`https://${process.env.VERCEL_URL}/api/og?title=Gallery&width=640&height=320`],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Gallery',
+    }
+
+}
 
 type gallery = {
     _id: string,
@@ -40,10 +51,6 @@ export async function Gallery() {
         <div
             className=' max-w-7xl mx-auto'
         >
-            <Head>
-                <title>Gallery - JHS</title>
-            </Head>
-
             <div className='flex flex-col items-center justify-center p-1'>
                 <h1
                     className='text-3xl font-bold text-center text-gray-800 md:text-4xl'

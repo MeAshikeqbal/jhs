@@ -2,11 +2,20 @@ import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { client } from "@/sanity/lib/client"
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import AlumniForm from '@/components/alumniform';
-import Head from "next/head";
+import { Metadata } from "next";
 
+export const metadata:Metadata = {
+  title: 'Alumni',
+  openGraph: {
+    images: [`https://${process.env.VERCEL_URL}/api/og?title=Alumni&width=640&height=320`],
+  },
+  twitter:{
+    card: 'summary_large_image',
+    title: 'Alumni',
+  }
+}
 
 type Alumni = {
   _id: string;
@@ -74,10 +83,6 @@ export async function alumni() {
     <div
       className="max-w-7xl mx-auto"
     >
-      <Head>
-        <title>Alumni - JHS</title>
-      </Head>
-
       {Object.entries(groupedAlumni).map(([batch, alumniGroup]) => (
         <div key={batch}
           className="max-w-7xl mx-auto"

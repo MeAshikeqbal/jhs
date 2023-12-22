@@ -1,16 +1,24 @@
 import { Separator } from '@/components/ui/separator'
-import Head from 'next/head'
 import React from 'react'
+
+export const metadata = {
+  title: 'Academic Calendar',
+  openGraph: {
+    images: [`https://${process.env.VERCEL_URL}/api/og?title=Academic%20Calendar&width=640&height=320`],
+  },
+  twitter:{
+    card: 'summary_large_image',
+    title: 'Academic Calendar',
+  }
+
+}
+
 
 const page = () => {
   return (
     <div
       className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'
     >
-
-      <Head>
-        <title>Acadamic Calender - JHS</title>
-      </Head>
       <div className='flex flex-col items-center justify-center p-1'>
         <h1
           className='text-3xl font-bold text-center text-gray-800 md:text-4xl'

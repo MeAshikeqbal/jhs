@@ -1,6 +1,18 @@
 import AlumniForm from '@/components/alumniform';
 import { Card } from '@/components/ui/card';
 
+export const metadata = {
+  title: 'Alumni Submission',
+  openGraph: {
+    images: [`https://${process.env.VERCEL_URL}/api/og?title=Alumni%20Submission&width=640&height=320`],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alumni',
+  }
+
+}
+
 function Page() {
   return (
     <div>

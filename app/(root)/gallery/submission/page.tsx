@@ -1,6 +1,17 @@
 import GalleryForm from '@/components/galleryform';
 import { Card } from '@/components/ui/card';
 
+export const metadata = {
+  title: 'Gallery Submission',
+  openGraph: {
+    images: [`https://${process.env.VERCEL_URL}/api/og?title=Gallery%20Submission&width=640&height=320`],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gallery',
+  }
+}
+
 function Page() {
   return (
     <div>

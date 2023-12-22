@@ -1,8 +1,18 @@
 import { Separator } from '@/components/ui/separator'
 import { client } from '@/sanity/lib/client'
-import Head from 'next/head'
 import PortableText from 'react-portable-text'
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'About Us',
+  openGraph: {
+    images: [`https://${process.env.VERCEL_URL}/api/og?title=About%20Us&width=640&height=320`],
+  },
+  twitter:{
+    card: 'summary_large_image',
+    title: 'About Us',
+  }
+}
 
 type aboutUs = {
   title: string,
@@ -22,9 +32,6 @@ export async function aboutUs() {
 
   return (
     <article>
-      <Head>
-        <title> {aboutUs[0].title} - JHS</title>
-      </Head>
       <div
         className='p-3 max-w-6xl mx-auto'
       >

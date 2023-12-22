@@ -1,8 +1,18 @@
 import { Separator } from '@/components/ui/separator'
 import { client } from '@/sanity/lib/client'
-import Head from 'next/head'
 import PortableText from 'react-portable-text'
 
+export const metadata = {
+  title: 'HM Desk',
+  openGraph: {
+    images: [`https://${process.env.VERCEL_URL}/api/og?title=HM%20Desk&width=640&height=320`],
+  },
+  twitter:{
+    card: 'summary_large_image',
+    title: 'HM Desk',
+  }
+
+}
 
 type HmDask = {
   name: string,
@@ -26,9 +36,6 @@ export async function hmDask() {
 
   return (
     <article>
-      <Head>
-        <title>HM Desk - JHS</title>
-      </Head>
       <div
         className='p-3 max-w-6xl mx-auto'
       >

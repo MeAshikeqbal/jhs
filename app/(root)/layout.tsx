@@ -11,14 +11,19 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jalalpurhighschool.com'),
   title:{
-    default: 'Jalalpur High School (H.S.)',
     template: '%s | Jalalpur High School (H.S.)',
+    default: 'Jalalpur High School (H.S.)',
   },
   description: 'Jalalpur High School (H.S.) is one of the significant academic institutions of Malda District, West Bengal Since 1973, it is looking forward to the advancement of learning with an unmatched calibre. ',
   openGraph: {
-    images: [`https://${process.env.VERCEL_URL}/api/og?title=%s&path=%s`],
+    images: [`https://${process.env.VERCEL_URL}/api/og?title=Jalalpur%20High%20School%20(H.S.)&width=640&height=320`],
   },
+  twitter:{
+    card: 'summary_large_image',
+    title: 'Jalalpur High School (H.S.)',
+  }
 }
 
 export default function RootLayout({

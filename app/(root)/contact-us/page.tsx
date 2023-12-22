@@ -1,6 +1,16 @@
 import { Facebook, HomeIcon, Mail, PhoneCallIcon, School, SchoolIcon } from 'lucide-react';
-import Head from 'next/head';
 import Link from 'next/link';
+
+export const metadata = {
+    title: 'Contact Us',
+    openGraph: {
+        images: [`https://${process.env.VERCEL_URL}/api/og?title=Contact%20Us&width=640&height=320`],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Contact Us',
+    }
+}
 
 
 const ContactUs = () => {
@@ -8,9 +18,6 @@ const ContactUs = () => {
         <div
             className='max-w-7xl mx-auto'
         >
-            <Head>
-                <title>Contact Us - JHS</title>
-            </Head>
             <div className='text-4xl font-bold text-center p-2'
 
             >
