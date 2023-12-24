@@ -8,6 +8,9 @@ import { Button } from '@/components/ui/button';
 import { Toaster, toast } from 'react-hot-toast'
 import { Checkbox } from '@/components/ui/checkbox';
 import { useRouter } from 'next/navigation';
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog';
+import Terms from '@/app/(root)/terms-and-condition/page';
+import { nanoid } from 'nanoid';
 
 
 const client = createClient({
@@ -71,6 +74,7 @@ function GalleryForm() {
             const imageAsset = await client.assets.upload('image', image);
 
             const gallery = {
+                _id: `drafts.${nanoid()}`,
                 _type: 'gallery',
                 image: {
                     _type: 'image',
@@ -87,7 +91,6 @@ function GalleryForm() {
 
 
             toast.success('Image added successfully!');
-            window.location.href = '/gallery/submission/success';
         } catch (error) {
             toast.error('Something went wrong!');
         } finally {
@@ -99,8 +102,9 @@ function GalleryForm() {
                 description: '',
                 date: '',
             });
-
-
+            setTimeout(() => {
+                router.push('/gallery/submission/success');
+            }, 1500);
         }
     };
 
@@ -116,7 +120,7 @@ function GalleryForm() {
                 </h1>
 
                 <form
-                    className='flex flex-col space-y-2 w-full'
+                    className='flex flex-col space-y-2.5 w-full'
                     onSubmit={handleSubmit}>
                     <Label htmlFor="image">Image</Label>
                     <Input type="file" name="image" id="image" placeholder='your picture' onChange={handleImageChange} required />
@@ -135,7 +139,20 @@ function GalleryForm() {
                         <Label
                             htmlFor='checkbox'
                         >
-                            I agree to share this information on the website.
+                            I agree to the &nbsp;
+                            <Dialog>
+                                <DialogTrigger
+                                    className='text-blue-950 font-bold hover:text-blue-900'
+                                >
+                                    terms and conditions
+                                </DialogTrigger>
+                                <DialogContent
+                                    className='p-3 max-w-xl mx-auto h-5/6 overflow-y-scroll text-sm '
+                                >
+                                    <Terms />
+                                </DialogContent>
+                            </Dialog>
+
                         </Label>
                     </div>
                     <Button type="submit" className="w-full p-2 mt-4 text-lg font-bold text-white bg-blue-950 rounded-md hover:bg-blue-900" disabled={loading}>
@@ -149,3 +166,4 @@ function GalleryForm() {
 }
 
 export default GalleryForm;
+

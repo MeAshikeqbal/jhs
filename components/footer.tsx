@@ -46,6 +46,11 @@ export function Footer () {
                                     <li className='text-gray-400 font-semibold hover:text-white'>
                                         <Link href='/events'>Events</Link>
                                     </li>
+                                    <li
+                                    className='text-gray-400 font-semibold hover:text-white'
+                                    >
+                                        <Link href='/terms-and-condition'>Terms and Condition</Link>
+                                    </li>
                                 </ul>
                             </div>
                             <Separator className='hidden md:block w-0.5 h-full bg-gray-400 mx-4' />

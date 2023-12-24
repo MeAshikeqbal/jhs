@@ -271,12 +271,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
             calendarTodayLabel: "Today",
           },
         },
-        {
-          title:"Email",
-          name:"email",
-          type:"string",
-          validation: (Rule) => Rule.required().email(),
-        }
       ],
     },
   ],

@@ -8,6 +8,9 @@ import { Button } from '@/components/ui/button';
 import { Toaster, toast } from 'react-hot-toast'
 import { Checkbox } from '@/components/ui/checkbox';
 import { useRouter } from 'next/navigation';
+import { Dialog, DialogContent, DialogTrigger } from './ui/dialog';
+import Terms from '@/app/(root)/terms-and-condition/page';
+import { nanoid } from 'nanoid';
 
 
 const client = createClient({
@@ -62,7 +65,7 @@ function AlumniForm() {
 
     try {
       const imageAsset = await client.assets.upload('image', image);
-      const existingDocument = await client.fetch('*[_type == "alumni" && email == $email][0]', {email: formState.email});
+      const existingDocument = await client.fetch('*[_type == "alumni" && email == $email][0]', { email: formState.email });
 
       const alumni = {
         _type: 'alumni',
@@ -77,27 +80,32 @@ function AlumniForm() {
       };
 
       if (existingDocument) {
-        await client
-          .patch(existingDocument._id)
-          .set({
-            name: formState.name,
-            batch: Number(formState.batch), // convert batch to a number
-            image: {
-              _type: 'image',
-              asset: {
-                _ref: imageAsset._id,
-              },
+        // Create a draft from the existing document
+        const draftDocument = {
+          ...existingDocument,
+          _id: `drafts.${existingDocument._id}`,
+          name: formState.name,
+          batch: Number(formState.batch),
+          image: {
+            _type: 'image',
+            asset: {
+              _ref: imageAsset._id,
             },
-          })
-          .commit();
+          },
+        };
+        await client.createOrReplace(draftDocument);
 
-          toast.success('Updated successfully!');
+        // Delete the published document
+        await client.delete(existingDocument._id);
+
+        toast.success('Updated successfully!');
       } else {
         await client
           .create({
+            _id: `drafts.${nanoid()}`,
             _type: 'alumni',
             name: formState.name,
-            batch: Number(formState.batch), // convert batch to a number
+            batch: Number(formState.batch),
             email: formState.email,
             image: {
               _type: 'image',
@@ -106,7 +114,7 @@ function AlumniForm() {
               },
             },
           });
-          toast.success('Submitted successfully!');
+        toast.success('Submitted successfully!');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -119,7 +127,9 @@ function AlumniForm() {
         batch: '',
         email: '',
       })
-      router.push('/alumni/submission/success');
+      setTimeout(() => {
+        router.push('/alumni/submission/success');
+      }, 1500);
     }
   };
 
@@ -132,14 +142,14 @@ function AlumniForm() {
       >
         <h1 className='text-2xl font-bold'>Alumni submit & Update Form</h1>
         <form
-          className='flex flex-col space-y-2 w-full'
+          className='flex flex-col space-y-2.5 w-full'
           onSubmit={handleSubmit}>
           <Label htmlFor="image">Image</Label>
           <Input type="file" name="image" id="image" placeholder='your picture' onChange={handleImageChange} required />
           <Label htmlFor="name">Name</Label>
           <Input required type="text" placeholder="Your Name" name="name" id="name" value={formState.name} onChange={handleChange} />
           <Label htmlFor="batch">Year of passing Highschool</Label>
-          <Input required type="number" placeholder="2021" name="batch" id="batch" value={formState.batch} onChange={handleChange} />
+          <Input required type="number" placeholder="2022" name="batch" id="batch" value={formState.batch} onChange={handleChange} />
           <Label htmlFor="email">Email</Label>
           <Input required type="email" placeholder="Your Email" name="email" id="email" value={formState.email} onChange={handleChange} />
           <div
@@ -149,7 +159,20 @@ function AlumniForm() {
             <Label
               htmlFor='checkbox'
             >
-              I agree to share my name and picture on the website.
+              I agree to the &nbsp;
+              <Dialog>
+                <DialogTrigger
+                  className='text-blue-950 font-bold hover:text-blue-900'
+                >
+                  terms and conditions
+                </DialogTrigger>
+                <DialogContent
+                  className='p-3 max-w-xl mx-auto h-5/6 overflow-y-scroll text-sm '
+                >
+                  <Terms />
+                </DialogContent>
+              </Dialog>
+
             </Label>
           </div>
           <Button type="submit" className="w-full p-2 mt-4 text-lg font-bold text-white bg-blue-950 rounded-md hover:bg-blue-900" disabled={loading}>

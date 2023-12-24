@@ -16,7 +16,7 @@ const success = () => {
             <p
                 className='text-center'
             >
-                Your submission is successful. Your information will be displayed soon.
+                Your submission is successful. Your information will be displayed on the alumni page after the admin approves it.
             </p>
             <Link href='/alumni'>
                 <Button

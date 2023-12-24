@@ -16,7 +16,7 @@ const success = () => {
             <p
                 className='text-center'
             >
-                Your submission is successful. Your picture will be displayed soon.
+                Your submission is successful. Your picture will be displayed on the gallery page after the admin approves it.
             </p>
 
             <Link href='/gallery'>
