@@ -82,8 +82,8 @@ export function Footer () {
                                     Admin Corner
                                 </h3>
                                 <Separator className='w-24 bg-gray-400 mx-4' />
-                                <Link href='/dashbord' className='text-gray-400 font-semibold hover:text-white'>
-                                    Admin Dashbord
+                                <Link href='/dashboard' className='text-gray-400 font-semibold hover:text-white'>
+                                    Admin Dashboard
                                 </Link>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ export function Footer () {
                 <div className="flex flex-col items-center justify-center py-6 text-gray-400">
                     <p className="text-sm font-medium">© {year} Jalalpur High School (H.S.)</p>
                     <p className="text-sm font-medium">All rights reserved.</p>
-                    <p className="text-sm font-medium">Designed & Devloved by&nbsp;
+                    <p className="text-sm font-medium">Designed & Devloped  by&nbsp;
                     <a href="https://itsashik.info"
                     target='_blank'
                     rel='noopener noreferrer'

@@ -48,8 +48,8 @@ const ContactUs = () => {
                             </div>
                             <div className='flex'>
                                 <Mail size={24} className='mr-2' />
-                                <Link href="mailto:dask@jalalpurhighschool.com" className='flex justify-center'>
-                                    dask@jalalpurhighschool.com
+                                <Link href="mailto:desk@jalalpurhighschool.com" className='flex justify-center'>
+                                    desk@jalalpurhighschool.com
                                 </Link>
                             </div>
                         </div>

@@ -59,7 +59,7 @@ export async function Gallery() {
                 <h2
                     className='text-l font-semibold text-center text-gray-800 md:text-xl'
                 >
-                    Memorys capture in the frame
+                    Memories  capture in the frame
                     <div
                         className='flex justify-center'
                     >

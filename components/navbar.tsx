@@ -29,9 +29,9 @@ export function Navbar({
       active: pathname === `/notice`,
     },
     {
-      href: `/hm-dask`,
-      label: 'HM Dask',
-      active: pathname === `/hm-dask`,
+      href: `/hm-desk`,
+      label: 'HM Desk',
+      active: pathname === `/hm-desk`,
     },
     {
       href: `/teachers`,
