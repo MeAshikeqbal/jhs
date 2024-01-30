@@ -19,54 +19,54 @@ export function Navbar({
 
   const routes = [
     {
-      href: `/`,
+      href: "/",
       label: 'Home',
-      active: pathname === `/`,
+      active: pathname === "/",
     },
     {
-      href: `/notice`,
+      href: "/notice",
       label: 'Notice',
-      active: pathname === `/notice`,
+      active: pathname === "/notice",
     },
     {
-      href: `/hm-desk`,
+      href: "/hm-desk",
       label: 'HM Desk',
-      active: pathname === `/hm-desk`,
+      active: pathname === "/hm-desk",
     },
     {
-      href: `/teachers`,
+      href: "/teachers",
       label: 'Teachers',
-      active: pathname === `/teachers`,
+      active: pathname === "/teachers",
     },
     {
-      href: `/gallery`,
+      href: "/gallery",
       label: 'Gallery',
-      active: pathname === `/gallery`,
+      active: pathname === "/gallery",
     },
     {
-      href: `/alumni`,
+      href: "/alumni",
       label: 'Alumni',
-      active: pathname === `/alumni`,
+      active: pathname === "/alumni",
     },
     {
-      href: `/contact-us`,
+      href: "/contact-us",
       label: 'Contact Us',
-      active: pathname === `/contact-us`,
+      active: pathname === "/contact-us",
     },
     {
-      href: `/academic-calendar`,
+      href: "/academic-calendar",
       label: 'Academic Calendar',
-      active: pathname === `/academic-calendar`,
+      active: pathname === "/academic-calendar",
     },
     {
-      href: `/events`,
+      href: "/events",
       label: 'Events',
-      active: pathname === `/events`,
+      active: pathname === "/events",
     },
     {
-      href: `/about-us`,
+      href: "/about-us",
       label: 'About Us',
-      active: pathname === `/about-us`,
+      active: pathname === "/about-us",
     },
   ];
 

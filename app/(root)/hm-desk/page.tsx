@@ -6,7 +6,7 @@ export const metadata = {
   title: 'HM Desk',
   openGraph: {
     url: 'https://jalalpurhighschool.com/hm-desk',
-    images: [`https://jhs-six.vercel.app/api/og?title=HM%20Desk&width=640&height=320`],
+    images: ["https://jhs-six.vercel.app/api/og?title=HM%20Desk&width=640&height=320"],
   },
   twitter:{
     card: 'summary_large_image',

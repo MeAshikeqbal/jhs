@@ -5,7 +5,7 @@ export const metadata = {
   title: 'Alumni Submission',
   openGraph: {
     url: 'https://jalalpurhighschool.com/alumni/submission',
-    images: [`https://jhs-six.vercel.app/api/og?title=Alumni%20Submission&width=640&height=320`],
+    images: ["https://jhs-six.vercel.app/api/og?title=Alumni%20Submission&width=640&height=320"],
   },
   twitter: {
     card: 'summary_large_image',

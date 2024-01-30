@@ -10,7 +10,7 @@ export const metadata = {
   title: 'Notice',
   openGraph: {
     url: 'https://jalalpurhighschool.com/notice',
-    images: [`https://jhs-six.vercel.app/api/og?title=Notice&width=640&height=320`],
+    images: ["https://jhs-six.vercel.app/api/og?title=Notice&width=640&height=320"],
   },
   twitter: {
     card: 'summary_large_image',
