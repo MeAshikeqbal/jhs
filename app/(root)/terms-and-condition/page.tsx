@@ -150,7 +150,7 @@ const Terms = () => {
                         <li>
                             If you have any questions or concerns regarding the photo sharing terms and conditions, please contact us at &nbsp; 
                             <Link
-                            href={`mailto:contact@jalalpurhighschool.com`}
+                            href={"mailto:contact@jalalpurhighschool.com"}
                             className='text-blue-600 hover:text-blue-800'
                             >
                              contact@jalalpurhighschool.com

@@ -5,7 +5,7 @@ export const metadata = {
     title: 'Contact Us',
     openGraph: {
         url: 'https://jalalpurhighschool.com/contact-us',
-        images: [`https://jhs-six.vercel.app/api/og?title=Contact%20Us&width=640&height=320`],
+        images: ["https://jhs-six.vercel.app/api/og?title=Contact%20Us&width=640&height=320"],
     },
     twitter: {
         card: 'summary_large_image',

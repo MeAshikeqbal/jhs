@@ -20,7 +20,7 @@ interface CarouselProps {
 }
 
 const fetchPosters = async () => {
-    const query = `*[_type == "poster"]`;
+    const query = '*[_type == "poster"]';
     const posters = await client.fetch(query);
     return posters;
 };

@@ -59,7 +59,7 @@ export async function home() {
               The school is situated in the heart of Jalalpur in the district of Malda, West Bengal. It is a Bengali medium school, which is affiliated to the West Bengal Board of Secondary Education (WBBSE) and West Bengal Council of Higher Secondary Education (WBCHSE). The school has classes from V to XII.
             </p>
             <Link
-              href={`/about-us`}
+              href={"/about-us"}
               passHref
               className="flex justify-center items-center p-3"
             >
