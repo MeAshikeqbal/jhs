@@ -8,7 +8,7 @@ const FacebookPage = () => {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
-            // @ts-ignore
+            // @ts-expect-error
             js.src = "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v18.0&appId=762001721456753";
             if (fjs && fjs.parentNode) {
                 fjs.parentNode.insertBefore(js, fjs);
