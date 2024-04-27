@@ -1,6 +1,4 @@
 ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=jhs)
-[![DeepSource](https://app.deepsource.com/gh/MeAshikeqbal/jhs.svg/?label=active+issues&show_trend=true&token=osFvJox5Nmt0bSjeJFOz0FEj)](https://app.deepsource.com/gh/MeAshikeqbal/jhs/)
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
